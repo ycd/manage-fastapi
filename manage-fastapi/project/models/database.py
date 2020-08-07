@@ -8,12 +8,14 @@ metadata = sqlalchemy.MetaData()
 # Put your database models here | Below
 
 
-test = sqlalchemy.Table(
-    "test",
-    metadata,
-    sqlalchemy.Column("id", sqlalchemy.Integer, primary_key=True),
-    sqlalchemy.Column("name", sqlalchemy.String),
-)
+# ----- Example ------
+#
+# test_db = sqlalchemy.Table(
+#     "test",
+#     metadata,
+#     sqlalchemy.Column("id", sqlalchemy.Integer, primary_key=True),
+#     sqlalchemy.Column("name", sqlalchemy.String),
+# )
 
 
 # Put your database models here | Above

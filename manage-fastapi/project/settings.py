@@ -21,13 +21,21 @@ class Settings(BaseSettings):
         raise ValueError(v)
 
     # Database Settings
-    POSTGRES_SERVER: Optional[str] = ""
-    POSTGRES_USER: Optional[str] = "yagu"
-    POSTGRES_PASSWORD: Optional[str] = "yagu123"
-    POSTGRES_DB: Optional[str] = ""
+    DATABASE_SERVER: Optional[str] = ""
+    DATABASE_USER: Optional[str] = ""
+    DATABASE_PASSWORD: Optional[str] = ""
+    DATABASE_PORT: Optional[str] = ""
+    DATABASE_NAME: Optional[str] = ""
+    DATABASE_HOST: Optional[str] = ""
+
+    # SQLALCHEMY_DATABASE_URL: Optional[
+    #     str
+    # ] = f"{DATABASE_SERVER}://{DATABASE_USER}:{DATABASE_PASSWORD}@{DATABASE_HOST}:{DATABASE_PORT}/{DATABASE_NAME}"
+
+    # or this
     SQLALCHEMY_DATABASE_URL: Optional[
         str
-    ] = f"postgresql://{POSTGRES_USER}:{POSTGRES_PASSWORD}@localhost:5432/mp"
+    ] = "postgresql://user:password@localhost:5432/db_name"
 
     class Config:
         case_sensitive = True
