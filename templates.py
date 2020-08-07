@@ -91,11 +91,10 @@ class Settings(BaseSettings):
     # SQLALCHEMY_DATABASE_URL: Optional[
     #     str
     # ] = f"{DATABASE_SERVER}://{DATABASE_USER}:{DATABASE_PASSWORD}@{DATABASE_HOST}:{DATABASE_PORT}/{DATABASE_NAME}"
+    # SQLALCHEMY_DATABASE_URL  "postgresql://user:passowrd@localhost:5432/database_name"
+    # SQLALCHEMY_DATABASE_URL  "sqlite:///./test.db"
 
-    # or this
-    SQLALCHEMY_DATABASE_URL: Optional[
-        str
-    ] = "postgresql://yagu:yagu123@localhost:5432/mp"
+
 
     class Config:
         case_sensitive = True
