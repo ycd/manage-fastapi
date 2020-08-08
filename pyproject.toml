@@ -1,12 +1,12 @@
 [tool.poetry]
 name = "manage-fastapi"
-version = "0.1.0"
+version = "0.1.1"
 description = "Managing FastAPI projects made easy."
 authors = ["ycd <yagizcanilbey1903@gmail.com>"]
 readme = "README.md"
 license = "MIT"
-repository = "https://github.com/ycd/Manage-FastAPI"
-homepage = "https://github.com/ycd/Manage-FastAPI"
+repository = "https://github.com/ycd/manage-fastapi"
+homepage = "https://github.com/ycd/manage-fastapi"
 
 classifiers = [
     "Topic :: Software Development :: Build Tools",
@@ -31,4 +31,3 @@ manage-fastapi = 'manage_fastapi.main:app'
 [build-system]
 requires = ["poetry>=0.12"]
 build-backend = "poetry.masonry.api"
-
