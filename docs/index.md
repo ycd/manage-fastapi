@@ -13,7 +13,7 @@
 ![PyPI](https://img.shields.io/pypi/v/manage-fastapi?style=for-the-badge)
 ---
 
-**Documentation**:
+**Documentation**: [View it on website.](https://ycd.github.io/manage-fastapi/)
 
 **Source Code**: View it on [Github](https://github.com/ycd/manage-fastapi/)
 
