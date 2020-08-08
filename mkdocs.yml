@@ -8,8 +8,9 @@ theme:
     text: 'Ubuntu'
 repo_name: ycd/Manage-FastAPI
 repo_url: https://github.com/ycd/manage-fastapi
+
 nav:
-- index.md
+- Manage FastAPI: index.md
 - Manage Projects:
   - Start new project: managing_projects/startproject.md
 - Manage Apps:
