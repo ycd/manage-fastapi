@@ -1,7 +1,7 @@
 import pathlib
 from pathlib import Path
 from typing import Union
-from templates import (
+from .templates import (
     main_template,
     database_template,
     schema_template,

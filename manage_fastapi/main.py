@@ -1,5 +1,5 @@
 import typer
-from utils import start_app, start_project
+from .utils import start_app, start_project
 
 app = typer.Typer(add_completion=False, help="Managing FastAPI projects made easy!")
 
