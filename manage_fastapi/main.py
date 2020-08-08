@@ -13,6 +13,3 @@ def startproject(projectname: str = typer.Argument(...)):
 def startapp(appname: str = typer.Argument(...)):
     start_app(appname)
 
-
-if __name__ == "__main__":
-    app()

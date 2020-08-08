@@ -1,69 +1,33 @@
 
-PROJECT IS UNDER DEVELOPMENT
 
 
+## Starting new FastAPI projects made easy.
 
-Command line management for FastAPI like django-admin
+**manage-fastapi** is a command line tool to manage your FastAPI projects easily. 
 
 
+###  Features :rocket:
+
+* Creates customizable **project boilerplate.**
+* Craetes customizable **app boilerplate.**
+
+
+How to use it
 
 ```python
-manage-fastapi run 
-manage-fastapi start-project # this will initialize a new project with some dirs etc.
+manage-fastapi startproject [ARGS] 
+manage-fastapi startapp [ARGS]
 ```
 
 
-Example structure
+## Release Notes :mega:
 
-```python
-manage-fastapi startproject [project_name}
-```
+### Latest Changes
 
-```json
-project/
-├── main.py
-├── __init__.py
-└── project
-    ├── database
-    │   └── session.py
-    ├── schemas
-    │   └── schema.py
-    └── settings.py
-```
+### 0.1.0
 
+* Prototype of project with two functionalities.
 
+## License
 
-manage-fastapi startapi {api_name}
-
-Expected behaviour: from startapi
-
-Will understand the location of main.py and create a folder with the_name
-
-```
-v1
-├── api.py
-├── endpoints
-│   └── endpoint.py
-└── __init__.py
-```
-
-
-ready-to-code backend
-
-```
-project/
-├── main.py
-├── project
-|   ├── __init__.py
-│   ├── database
-│   │   └── session.py
-│   ├── schemas
-│   │   └── schema.py
-│   └── settings.py
-└── v1
-    ├── api.py
-    ├── endpoints
-    │   └── endpoint.py
-    └── __init__.py
-```
-
+This project is licensed under the terms of the MIT license.
