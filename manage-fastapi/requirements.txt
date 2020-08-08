@@ -1,0 +1,3 @@
+databases[postgresql,sqlite]==0.3.2
+fastapi==0.60.1
+uvicorn==0.11.8
