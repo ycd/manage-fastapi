@@ -1,21 +1,16 @@
 import typer
-import time
 from utils import start_app, start_project
-import os
-from pathlib import Path
 
-app = typer.Typer(add_completion=False)
+app = typer.Typer(add_completion=False, help="Managing FastAPI projects made easy!")
 
 
-@app.command()
-def startproject(
-    projectname: str = typer.Option(..., prompt="Give a name to your project")
-):
+@app.command(help="Creates a project with the given name.")
+def startproject(projectname: str = typer.Argument(...)):
     start_project(projectname)
 
 
-@app.command()
-def startapp(appname: str = typer.Option(..., prompt="Give a name to your app")):
+@app.command(help="Creates a app with the given name.")
+def startapp(appname: str = typer.Argument(...)):
     start_app(appname)
 
 
