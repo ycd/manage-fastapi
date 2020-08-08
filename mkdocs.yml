@@ -1,0 +1,19 @@
+site_name: Manage FastAPI
+theme:
+  name: material
+  palette:
+    primary: 'green'
+    accent: 'orange'
+  font:
+    text: 'Ubuntu'
+repo_name: ycd/Manage-FastAPI
+repo_url: https://github.com/ycd/manage-fastapi
+nav:
+- index.md
+- Manage Projects:
+  - Start new project: managing_projects/startproject.md
+- Manage Apps:
+  - Start new app: managing_apps/startapp.md
+
+markdown_extensions:
+  - codehilite
