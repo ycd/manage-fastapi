@@ -4,7 +4,7 @@ from utils import start_app, start_project
 import os
 from pathlib import Path
 
-app = typer.Typer()
+app = typer.Typer(add_completion=False)
 
 
 @app.command()
