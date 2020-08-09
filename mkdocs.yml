@@ -15,6 +15,17 @@ nav:
   - Start new project: managing_projects/startproject.md
 - Manage Apps:
   - Start new app: managing_apps/startapp.md
+- Release Notes: 'release-notes.md'
+
 
 markdown_extensions:
+  - toc:
+      permalink: true
+  - markdown.extensions.codehilite:
+      guess_lang: false
+  - admonition
   - codehilite
+  - extra
+  - tables
+  - smarty
+  - pymdownx.tabbed
