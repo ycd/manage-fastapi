@@ -45,8 +45,10 @@ def start_project(project_name: str, current_path: str = Path.cwd()):
             database.write(database_template.replace("{project_name}", project_name))
             settings.write(settings_template.replace("{project_name}", project_name))
 
+        print(f"Project {projectname} created successfully!")
+
     except FileExistsError as e:
-        print(f"Project {project_name} already exists!", e)
+        print(f"Project {project_name} already exists!")
 
 
 def start_app(app_name: str, current_path: str = Path.cwd()):
@@ -67,5 +69,7 @@ def start_app(app_name: str, current_path: str = Path.cwd()):
             api.write(api_template.replace("{app_name}", app_name))
             test.write(test_template.replace("{app_name}", app_name))
 
+        print(f"Application {app_name} created successfully!")
+
     except FileExistsError as e:
-        print(f"App {app_name} already exists!", e)
+        print(f"Application {app_name} already exists!")
