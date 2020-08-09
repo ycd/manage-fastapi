@@ -7,6 +7,7 @@
 <img src="https://img.shields.io/github/issues/ycd/manage-fastapi?style=for-the-badge">
 <a href="https://github.com/ycd/manage-fastapi" target="_blank">
     <img src="https://img.shields.io/bitbucket/pr-raw/ycd/manage-fastapi?style=for-the-badge" alt="Build">
+    <img alt="Travis (.com)" src="https://img.shields.io/travis/com/ycd/manage-fastapi?style=for-the-badge">
 </a>
 <a href="https://github.com/ycd/manage-fastapi" target="_blank">
     <img src="https://img.shields.io/github/last-commit/ycd/manage-fastapi?style=for-the-badge" alt="Latest Commit">
