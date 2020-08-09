@@ -12,6 +12,8 @@ classifiers = [
     "Topic :: Software Development :: Build Tools",
     "Topic :: Software Development :: Libraries :: Python Modules"
 ]
+exclude = ["manage_fastapi/tests"]
+
 
 
 [tool.poetry.dependencies]
