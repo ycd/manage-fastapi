@@ -45,7 +45,7 @@ def start_project(project_name: str, current_path: str = Path.cwd()):
             database.write(database_template.replace("{project_name}", project_name))
             settings.write(settings_template.replace("{project_name}", project_name))
 
-        print(f"Project {projectname} created successfully!")
+        print(f"Project {project_name} created successfully!")
 
     except FileExistsError as e:
         print(f"Project {project_name} already exists!")
