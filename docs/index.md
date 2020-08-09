@@ -1,7 +1,7 @@
 
 
 <h3 align="center">
-    <strong>Managing FastAPI projects made easy</strong>
+    <strong>Managing FastAPI projects made easy.</strong>
 </h3>
 <p align="center">
 <img src="https://img.shields.io/github/issues/ycd/manage-fastapi?style=for-the-badge">
@@ -31,14 +31,14 @@
 
 
 
-##  Features :rocket:
+##  Features 🚀
 
 * #### Creates customizable **project boilerplate.**
 * #### Creates customizable **app boilerplate.**
 * #### More will come soon.
 
 
-## Example folder structure for more check [documentation](https://ycd.github.io/manage-fastapi/)
+## Example folder structure 📦 
 ```
 newproject/
 ├── __init__.py
@@ -64,24 +64,10 @@ newproject/
     └── __init__.py
 ```
 
-## Installation :pushpin:
+## Installation 📌
 
 `pip install manage-fastapi`
 
-
-## Release Notes :mega:
-
-### Latest Changes
-
-### 0.1.1
-
-* Added documentation
-* Fixed typos
-* Additional response for successfuly creation.
-
-### 0.1.0
-
-* Prototype of project with two functionalities.
 
 ## License
 
