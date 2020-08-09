@@ -1,0 +1,10 @@
+language: python
+python:
+  - "3.6"
+  - "3.7"
+  - "3.8"
+install:
+  - pip install typer pytest
+script:
+  - cd manage_fastapi
+  - pytest

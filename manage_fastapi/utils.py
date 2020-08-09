@@ -46,7 +46,10 @@ def start_project(project_name: str, current_path: str = Path.cwd()):
             settings.write(settings_template.replace("{project_name}", project_name))
 
     except FileExistsError as e:
-        print(f"Project {project_name} already exists!", e)
+        print(f"Project {project_name} already exists!")
+
+    else:
+        print(f"Project {project_name} created successfully!")
 
 
 def start_app(app_name: str, current_path: str = Path.cwd()):
@@ -68,4 +71,7 @@ def start_app(app_name: str, current_path: str = Path.cwd()):
             test.write(test_template.replace("{app_name}", app_name))
 
     except FileExistsError as e:
-        print(f"App {app_name} already exists!", e)
+        print(f"Application {app_name} already exists!")
+
+    else:
+        print(f"Application {app_name} created successfully!")
