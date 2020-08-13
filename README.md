@@ -41,7 +41,7 @@
 
 ## Starting a new project with Manage FastAPI
 
-![](docs_assets/startproject.png)
+<img src="docs_assets/startproject.png" width=700>
 
 
 ## Example folder structure for more check [documentation](https://ycd.github.io/manage-fastapi/)
