@@ -1,28 +1,8 @@
-main_template = """from fastapi import FastAPI
-from fastapi.middleware.cors import CORSMiddleware
+database_options_template = """PostgreSQL - SQLite - MySQL [0]
+Tortoise                    [1]
+MongoDB                     [2]
+Create without Database     [9]
 
-from {project_name}.settings import settings
-from {project_name}.models.database import database
-
-app = FastAPI(title=settings.PROJECT_NAME)
-
-if settings.BACKEND_CORS_ORIGINS:
-    app.add_middleware(
-        CORSMiddleware,
-        allow_origins=[str(origin) for origin in settings.BACKEND_CORS_ORIGINS],
-        allow_methods=["*"],
-        allow_headers=["*"],
-    )
-
-
-@app.on_event("startup")
-async def connect_database():
-    await database.connect()
-
-
-@app.on_event("shutdown")
-async def disconnect_database():
-    await database.disconnect()
 """
 
 schema_template = """# For more information check Pydantic documentation = https://pydantic-docs.helpmanual.io/usage/models/
@@ -41,23 +21,6 @@ class Model(BaseModel):
     pass
 """
 
-database_template = """import sqlalchemy
-from {project_name}.settings import settings
-import databases
-
-database = databases.Database(settings.SQLALCHEMY_DATABASE_URL)
-metadata = sqlalchemy.MetaData()
-
-# Put your database models here | Below
-
-# FastAPI documentation for databases: https://fastapi.tiangolo.com/advanced/async-sql-databases/
-
-# Put your database models here | Above
-
-
-engine = sqlalchemy.create_engine(settings.SQLALCHEMY_DATABASE_URL)
-metadata.create_all(engine)
-"""
 
 settings_template = """from typing import Any, Dict, List, Optional, Union
 
@@ -82,20 +45,20 @@ class Settings(BaseSettings):
         raise ValueError(v)
 
     # Database Settings
-    DATABASE_SERVER: Optional[str] = ""
-    DATABASE_USER: Optional[str] = ""
-    DATABASE_PASSWORD: Optional[str] = ""
-    DATABASE_PORT: Optional[str] = ""
-    DATABASE_NAME: Optional[str] = ""
-    DATABASE_HOST: Optional[str] = ""
+    DB_SERVER: Optional[str] = ""
+    DB_USER: Optional[str] = ""
+    DB_PASSWORD: Optional[str] = ""
+    DB_PORT: Optional[str] = ""
+    DB_NAME: Optional[str] = ""
+    DB_PORT: Optional[str] = ""
 
-    # SQLALCHEMY_DATABASE_URL: Optional[
+    # DATABASE_URL: Optional[
     #     str
-    # ] = f"{DATABASE_SERVER}://{DATABASE_USER}:{DATABASE_PASSWORD}@{DATABASE_HOST}:{DATABASE_PORT}/{DATABASE_NAME}"
+    # ] = f"{DB_SERVER}://{DB_USER}:{DB_PASSWORD}@{DB_PORT}:{DB_PORT}/{DB_NAME}"
 
     
-    # SQLALCHEMY_DATABASE_URL = "postgresql://user:passowrd@localhost:5432/database_name"
-    SQLALCHEMY_DATABASE_URL = "sqlite:///./test.db"
+    # DATABASE_URL = "postgresql://user:passowrd@localhost:5432/DB_NAME"
+    DATABASE_URL = "sqlite:///./test.db"
 
 
 
@@ -160,4 +123,184 @@ def test_read_items():
     response = client.get("/items/foo")
     assert response.status_code == 200
     assert response.json() == {"name": "Fighters"}
+"""
+
+requirements_template = """fastapi==0.61.0
+uvicorn==0.11.8
+"""
+
+
+# TORTOISE Main | Database template
+
+tortoise_main_template = """from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
+
+from {project_name}.{project_name}.models.database import Example
+from tortoise.contrib.fastapi import HTTPNotFoundError, register_tortoise
+
+
+from {project_name}.{project_name}.settings import settings
+
+app = FastAPI(title=settings.PROJECT_NAME)
+
+
+if settings.BACKEND_CORS_ORIGINS:
+    app.add_middleware(
+        CORSMiddleware,
+        allow_origins=[str(origin) for origin in settings.BACKEND_CORS_ORIGINS],
+        allow_methods=["*"],
+        allow_headers=["*"],
+    )
+
+
+
+register_tortoise(
+    app,
+    db_url=settings.DATABASE_URL,
+    modules={"models": ["{project_name}.{project_name}.models"]},
+    generate_schemas=True,
+    add_exception_handlers=True,
+)
+"""
+
+tortoise_database_template = """from tortoise import fields, models
+from tortoise.contrib.pydantic import pydantic_model_creator
+
+
+class Example(models.Model):
+
+    id = fields.IntField(pk=True)
+    created_at = fields.DatetimeField(auto_now_add=True)
+    modified_at = fields.DatetimeField(auto_now=True)
+
+    class PydanticMeta:
+        pass
+
+
+Example = pydantic_model_creator(Example, name="Example")
+"""
+
+
+# Postgresql, SQLite, MySQL Main | Database
+
+empty_main_template = """from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
+
+from {project_name}.settings import settings 
+
+if settings.BACKEND_CORS_ORIGINS:
+    app.add_middleware(
+        CORSMiddleware,
+        allow_origins=[str(origin) for origin in settings.BACKEND_CORS_ORIGINS],
+        allow_methods=["*"],
+        allow_headers=["*"],
+    )
+
+
+"""
+
+
+async_sql_main_template = """from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
+
+from {project_name}.{project_name}.settings import settings 
+from {project_name}.{project_name}.models.database import database
+
+app = FastAPI(title=settings.PROJECT_NAME)
+
+if settings.BACKEND_CORS_ORIGINS:
+    app.add_middleware(
+        CORSMiddleware,
+        allow_origins=[str(origin) for origin in settings.BACKEND_CORS_ORIGINS],
+        allow_methods=["*"],
+        allow_headers=["*"],
+    )
+
+
+@app.on_event("startup")
+async def connect_database():
+    await database.connect()
+
+
+@app.on_event("shutdown")
+async def disconnect_database():
+    await database.disconnect()
+"""
+
+async_sql_database_template = """import sqlalchemy
+from {project_name}.{project_name}.settings import settings
+import databases
+
+database = databases.Database(settings.DATABASE_URL)
+metadata = sqlalchemy.MetaData()
+
+# Put your database models here | Below
+
+# FastAPI documentation for databases: https://fastapi.tiangolo.com/advanced/async-sql-databases/
+
+# Put your database models here | Above
+
+
+engine = sqlalchemy.create_engine(settings.DATABASE_URL)
+metadata.create_all(engine)
+"""
+
+
+### MONGODB
+mongo_main_template = """from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
+
+from {project_name}.{project_name}.settings import settings 
+from {project_name}.{project_name}.models.utils import connect_to_mongo, close_mongo_connection
+
+app = FastAPI()
+
+if settings.BACKEND_CORS_ORIGINS:
+    app.add_middleware(
+        CORSMiddleware,
+        allow_origins=[str(origin) for origin in settings.BACKEND_CORS_ORIGINS],
+        allow_methods=["*"],
+        allow_headers=["*"],
+    )
+
+app.add_event_handler("startup", connect_to_mongo)
+app.add_event_handler("shutdown", close_mongo_connection)
+
+
+"""
+
+
+mongo_database_template = """from motor.motor_asyncio import AsyncIOMotorClient
+
+
+class DataBase:
+    client: AsyncIOMotorClient = None
+
+
+db = DataBase()
+
+
+async def get_database() -> AsyncIOMotorClient:
+    return db.client
+"""
+
+mongo_utils_template = """import logging
+
+from motor.motor_asyncio import AsyncIOMotorClient
+from {project_name}.{project_name}.models.database import db
+
+logger = logging.getLogger(__name__)
+
+
+async def connect_to_mongo():
+    db.client = AsyncIOMotorClient(str("localhost:27017"),
+                                   maxPoolSize=10,
+                                   minPoolSize=10)
+
+    logger.info(f"Connecting to mongoDB")
+
+
+async def close_mongo_connection():
+    db.client.close()
+    logger.info(f"Closing to mongoDB")
 """

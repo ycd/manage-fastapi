@@ -85,20 +85,20 @@ class Settings(BaseSettings):
         raise ValueError(v)
 
     # Database Settings
-    DATABASE_SERVER: Optional[str] = ""
-    DATABASE_USER: Optional[str] = ""
-    DATABASE_PASSWORD: Optional[str] = ""
-    DATABASE_PORT: Optional[str] = ""
-    DATABASE_NAME: Optional[str] = ""
-    DATABASE_HOST: Optional[str] = ""
+    DB_SERVER: Optional[str] = ""
+    DB_USER: Optional[str] = ""
+    DB_PASSWORD: Optional[str] = ""
+    DB_PORT: Optional[str] = ""
+    DB_NAME: Optional[str] = ""
+    DB_PORT: Optional[str] = ""
 
-    # SQLALCHEMY_DATABASE_URL: Optional[
+    # DATABASE_URL: Optional[
     #     str
-    # ] = f"{DATABASE_SERVER}://{DATABASE_USER}:{DATABASE_PASSWORD}@{DATABASE_HOST}:{DATABASE_PORT}/{DATABASE_NAME}"
+    # ] = f"{DB_SERVER}://{DB_USER}:{DB_PASSWORD}@{DB_PORT}:{DB_PORT}/{DB_NAME}"
 
 
-    # SQLALCHEMY_DATABASE_URL = "postgresql://user:passowrd@localhost:5432/database_name"
-    SQLALCHEMY_DATABASE_URL = "sqlite:///./test.db"
+    # DATABASE_URL = "postgresql://user:passowrd@localhost:5432/DB_NAME"
+    DATABASE_URL = "sqlite:///./test.db"
 
 
 
@@ -116,7 +116,7 @@ import sqlalchemy
 from newproject.settings import settings
 import databases
 
-database = databases.Database(settings.SQLALCHEMY_DATABASE_URL)
+database = databases.Database(settings.DATABASE_URL)
 metadata = sqlalchemy.MetaData()
 
 # Put your database models here | Below
@@ -126,7 +126,7 @@ metadata = sqlalchemy.MetaData()
 # Put your database models here | Above
 
 
-engine = sqlalchemy.create_engine(settings.SQLALCHEMY_DATABASE_URL)
+engine = sqlalchemy.create_engine(settings.DATABASE_URL)
 metadata.create_all(engine)
 ```
 
