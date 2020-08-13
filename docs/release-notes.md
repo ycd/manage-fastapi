@@ -2,6 +2,12 @@
 
 ### Latest Changes
 
+### 0.1.3
+
+* Make database optional
+* Now Manage FastAPI has support for MongoDB, PostgreSQL, SQLite, MySQL, Tortoise ORM
+
+
 ### 0.1.2
 
 * Add tests
