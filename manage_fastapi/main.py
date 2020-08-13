@@ -25,6 +25,3 @@ def startapp(appname: str = typer.Argument(...)):
 # def runserver(server: str = typer.Argument("uvicorn")):
 #     run_server()
 
-
-if __name__ == "__main__":
-    app()
