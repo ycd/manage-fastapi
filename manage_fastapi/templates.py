@@ -52,12 +52,8 @@ class Settings(BaseSettings):
     DB_NAME: Optional[str] = ""
     DB_PORT: Optional[str] = ""
 
-    # DATABASE_URL: Optional[
-    #     str
-    # ] = f"{DB_SERVER}://{DB_USER}:{DB_PASSWORD}@{DB_PORT}:{DB_PORT}/{DB_NAME}"
-
+    # DATABASE_URL: str = f"{DB_SERVER}://{DB_USER}:{DB_PASSWORD}@{DB_PORT}:{DB_PORT}/{DB_NAME}"
     
-    # DATABASE_URL = "postgresql://user:passowrd@localhost:5432/DB_NAME"
     DATABASE_URL = "sqlite:///./test.db"
 
 
