@@ -26,22 +26,18 @@ def start_project(
     try:
         Path(f"{current_path}/{project_name}").mkdir(parents=True, exist_ok=False)
         Path(f"{current_path}/{project_name}/tests").mkdir(parents=True, exist_ok=False)
-        Path(f"{current_path}/{project_name}/{project_name}").mkdir(
-            parents=True, exist_ok=False
-        )
-        Path(f"{current_path}/{project_name}/{project_name}/schemas").mkdir(
+        Path(f"{current_path}/{project_name}/core").mkdir(parents=True, exist_ok=False)
+        Path(f"{current_path}/{project_name}/core/schemas").mkdir(
             parents=True, exist_ok=False
         )
         Path(f"{current_path}/{project_name}/__init__.py").touch()
         Path(f"{current_path}/{project_name}/tests/__init__.py").touch()
-        Path(
-            f"{current_path}/{project_name}/{project_name}/schemas/__init__.py"
-        ).touch()
+        Path(f"{current_path}/{project_name}/core/schemas/__init__.py").touch()
 
         with open(
-            f"{current_path}/{project_name}/{project_name}/schemas/schema.py", "a+"
+            f"{current_path}/{project_name}/core/schemas/schema.py", "a+"
         ) as schema, open(
-            f"{current_path}/{project_name}/{project_name}/settings.py", "a+"
+            f"{current_path}/{project_name}/core/settings.py", "a+"
         ) as settings, open(
             f"{current_path}/requirements.txt", "a+"
         ) as requirements:
@@ -51,15 +47,13 @@ def start_project(
 
         if database_option == "0":
 
-            Path(f"{current_path}/{project_name}/{project_name}/models").mkdir(
+            Path(f"{current_path}/{project_name}/core/models").mkdir(
                 parents=True, exist_ok=False
             )
-            Path(
-                f"{current_path}/{project_name}/{project_name}/models/__init__.py"
-            ).touch()
+            Path(f"{current_path}/{project_name}/core/models/__init__.py").touch()
 
             with open(
-                f"{current_path}/{project_name}/{project_name}/models/database.py", "a+"
+                f"{current_path}/{project_name}/core/models/database.py", "a+"
             ) as database, open(
                 f"{current_path}/{project_name}/main.py", "a+"
             ) as main, open(
@@ -75,15 +69,13 @@ def start_project(
 
         # Tortoise ORM = 1
         elif database_option == "1":
-            Path(f"{current_path}/{project_name}/{project_name}/models").mkdir(
+            Path(f"{current_path}/{project_name}/core/models").mkdir(
                 parents=True, exist_ok=False
             )
-            Path(
-                f"{current_path}/{project_name}/{project_name}/models/__init__.py"
-            ).touch()
+            Path(f"{current_path}/{project_name}/core/models/__init__.py").touch()
 
             with open(
-                f"{current_path}/{project_name}/{project_name}/models/database.py", "a+"
+                f"{current_path}/{project_name}/core/models/database.py", "a+"
             ) as database, open(
                 f"{current_path}/{project_name}/main.py", "a+"
             ) as main, open(
@@ -97,19 +89,17 @@ def start_project(
 
         # MongoDB
         elif database_option == "2":
-            Path(f"{current_path}/{project_name}/{project_name}/models").mkdir(
+            Path(f"{current_path}/{project_name}/core/models").mkdir(
                 parents=True, exist_ok=False
             )
-            Path(
-                f"{current_path}/{project_name}/{project_name}/models/__init__.py"
-            ).touch()
+            Path(f"{current_path}/{project_name}/core/models/__init__.py").touch()
 
             with open(
-                f"{current_path}/{project_name}/{project_name}/models/database.py", "a+"
+                f"{current_path}/{project_name}/core/models/database.py", "a+"
             ) as database, open(
                 f"{current_path}/{project_name}/main.py", "a+"
             ) as main, open(
-                f"{current_path}/{project_name}/{project_name}/models/utils.py", "a+"
+                f"{current_path}/{project_name}/core/models/utils.py", "a+"
             ) as utils, open(
                 f"{current_path}/requirements.txt", "a+"
             ) as requirements:
@@ -165,13 +155,15 @@ def select_database():
 
 
 # TODO
-# def run_server(server: str = ("uvicorn")):
-#     import os
-#     import subprocess
 
-#     project_name = os.getenv("PROJECT_NAME")
-#     print(project_name)
-#     subprocess.run(
-#         [server, f"{Path.cwd()}/{project_name}/main:app".replace("/", "."), "--reload"]
-#     )
+
+def run_server(server: str = ("uvicorn")):
+    import subprocess
+
+    subprocess.run(
+        [server, f"{Path.cwd()}/{project_name}/main:app".replace("/", "."), "--reload"]
+    )
+
+
+#
 
