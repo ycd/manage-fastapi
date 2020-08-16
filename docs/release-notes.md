@@ -2,6 +2,12 @@
 
 ### Latest Changes
 
+### 0.1.4
+
+* Changed project architecture
+* Increased travis tests
+
+
 ### 0.1.3
 
 * Make database optional

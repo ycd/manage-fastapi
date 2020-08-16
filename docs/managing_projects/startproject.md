@@ -3,21 +3,21 @@ To start a new project with Manage FastAPI, you can use this:
 
 * `manage-fastapi startproject [project-name]` - Create a new project.
 
-This will create create **4 directories and 8 files** for you. Let's see what it includes, for instance i'm creating a new project called **newproject**
+This will create create **4 directories and 8 files** for you. Let's see what it includes, for instance i'm creating a new project called **fastproject**
 
 ```shell
-manage-fastapi startproject newproject
+manage-fastapi startproject fastproject
 
-Project newproject created successfully!
+Project fastproject created successfully!
 ```
 
 The command we ran above, created a `main.py` that will include all our external app's. A folder called **models** for our database stuff, another folder called **schemas** for our Pydantic models etc and a `settings.py` file.
 
 ```shell
-newproject/
+fastproject/
 ├── __init__.py
 ├── main.py
-├── newproject
+├── core
 │   ├── models
 │   │   ├── database.py
 │   │   └── __init__.py
@@ -35,8 +35,8 @@ Our **`main.py`** gonna be our controller. It will include all the routers other
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
-from newproject.settings import settings
-from newproject.models.database import database
+from fastproject.settings import settings
+from fastproject.models.database import database
 
 app = FastAPI(title=settings.PROJECT_NAME)
 
@@ -68,7 +68,7 @@ from pydantic import BaseSettings, AnyHttpUrl, HttpUrl, validator
 
 
 class Settings(BaseSettings):
-    PROJECT_NAME: str = "newproject"
+    PROJECT_NAME: str = "fastproject"
 
     BACKEND_CORS_ORIGINS: List[AnyHttpUrl] = [
         "http://localhost",
@@ -113,7 +113,7 @@ In **`models/database.py`** we create all our database stuff, If you don't need 
 
 ```python
 import sqlalchemy
-from newproject.settings import settings
+from fastproject.settings import settings
 import databases
 
 database = databases.Database(settings.DATABASE_URL)
