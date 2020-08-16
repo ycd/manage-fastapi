@@ -153,7 +153,7 @@ if settings.BACKEND_CORS_ORIGINS:
 register_tortoise(
     app,
     db_url=settings.DATABASE_URL,
-    modules={"models": ["{project_name}.{project_name}.models"]},
+    modules={"models": ["{project_name}.core.models"]},
     generate_schemas=True,
     add_exception_handlers=True,
 )

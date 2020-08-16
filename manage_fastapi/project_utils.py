@@ -1,6 +1,9 @@
 import pathlib
 from pathlib import Path
-from typing import Union
+
+import os
+
+from typing import Union, Dict
 from .templates import (
     empty_main_template,
     async_sql_main_template,
@@ -22,7 +25,7 @@ from .templates import (
 
 def start_project(
     project_name: str, current_path: str = Path.cwd(), database_option: str = None
-):
+) -> str:
     try:
         Path(f"{current_path}/{project_name}").mkdir(parents=True, exist_ok=False)
         Path(f"{current_path}/{project_name}/tests").mkdir(parents=True, exist_ok=False)
@@ -66,7 +69,7 @@ def start_project(
                 main.write(
                     async_sql_main_template.replace("{project_name}", project_name)
                 )
-                requirements.write("databases[postgresql,sqlite,mysql]==0.3.2")
+                requirements.write("databases[postgresql,sqlite,mysql]==0.3.2\n")
 
         # Tortoise ORM = 1
         elif database_option == "1":
@@ -86,7 +89,7 @@ def start_project(
                 main.write(
                     tortoise_main_template.replace("{project_name}", project_name)
                 )
-                requirements.write("tortoise-orm==0.16.14")
+                requirements.write("tortoise-orm==0.16.14\n")
 
         # MongoDB
         elif database_option == "2":
@@ -111,7 +114,7 @@ def start_project(
                 utils.write(
                     mongo_utils_template.replace("{project_name}", project_name)
                 )
-                requirements.write("motor==2.1.0")
+                requirements.write("motor==2.1.0\n")
 
         else:
             with open(f"{current_path}/{project_name}/main.py", "a+") as main:
@@ -125,7 +128,7 @@ def start_project(
         print(f"We created requirements file for your project needs.")
 
 
-def start_app(app_name: str, current_path: str = Path.cwd()):
+def start_app(app_name: str, current_path: str = Path.cwd()) -> str:
     try:
         Path(f"{current_path}/{app_name}").mkdir(parents=True, exist_ok=False)
         Path(f"{current_path}/{app_name}/endpoints").mkdir(parents=True, exist_ok=False)
@@ -150,19 +153,13 @@ def start_app(app_name: str, current_path: str = Path.cwd()):
         print(f"Application {app_name} created successfully!")
 
 
-def select_database():
+def select_database() -> int:
     option = input(database_options_template + "Select a database: ")
     return option
 
 
-# TODO
-# def run_server(server: str = ("uvicorn")):
-#     import os
-#     import subprocess
+def run_server() -> None:
+    import subprocess
 
-#     project_name = os.getenv("PROJECT_NAME")
-#     print(project_name)
-#     subprocess.run(
-#         [server, f"{Path.cwd()}/{project_name}/main:app".replace("/", "."), "--reload"]
-#     )
+    subprocess.run(["uvicorn", "main:app", "--reload"])
 
