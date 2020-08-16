@@ -26,6 +26,7 @@
 
 **Source Code**: View it on [Github](https://github.com/ycd/manage-fastapi/)
 
+**Installation**: `pip install manage-fastapi`
 
 ---
 
@@ -65,6 +66,35 @@ fastproject/
     │   └── __init__.py
     └── __init__.py
 ```
+
+## Getting information about our Pydantic models.
+
+```
+manage-fastapi showmodels
+```
+
+
+## With this command we are getting a fancy output of our models.
+
+```
+╔════════════════════════════════╗
+║ item.py                        ║
+║ -------                        ║
+║ ItemBase                       ║
+║ ItemCreate                     ║
+║ ItemUpdate                     ║
+║ ItemInDBBase                   ║
+║ Item                           ║
+║ ItemInDB                       ║
+╚════════════════════════════════╝
+╔════════════════════════════════╗
+║ token.py                       ║
+║ --------                       ║
+║ Token                          ║
+║ TokenPayload                   ║
+╚════════════════════════════════╝
+```
+
 
 ## Installation 📌
 
