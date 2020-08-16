@@ -116,7 +116,7 @@ def start_project(
             with open(f"{current_path}/{project_name}/main.py", "a+") as main:
                 main.write(empty_main_template.replace("{project_name}", project_name))
 
-    except FileExistsError as e:
+    except FileExistsError:
         print(f"Project {project_name} already exists!")
 
     else:
@@ -142,7 +142,7 @@ def start_app(app_name: str, current_path: str = Path.cwd()):
             api.write(api_template.replace("{app_name}", app_name))
             test.write(test_template.replace("{app_name}", app_name))
 
-    except FileExistsError as e:
+    except FileExistsError:
         print(f"Application {app_name} already exists!")
 
     else:
@@ -158,12 +158,15 @@ def select_database():
 
 
 # TODO
-# def run_server(server: str = ("uvicorn")):
-#     import os
-#     import subprocess
-#     project_name = os.getenv("PROJECT_NAME")
-#     print(project_name)
-#     subprocess.run(
-#         [server, f"{Path.cwd()}/{project_name}/main:app".replace("/", "."), "--reload"]
-#     )
+
+
+def run_server(server: str = ("uvicorn")):
+    import os
+    import subprocess
+
+    project_name = os.getenv("PROJECT_NAME")
+    print(project_name)
+    subprocess.run(
+        [server, f"{Path.cwd()}/{project_name}/main:app".replace("/", "."), "--reload"]
+    )
 
