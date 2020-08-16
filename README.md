@@ -117,6 +117,15 @@ manage-fastapi showmodels
 
 ### Latest Changes
 
+
+### 0.1.5
+
+* Added showmodels
+* Added runserver
+* Fix little bugs
+* Update docs
+
+
 ### 0.1.41
 
 * Quick fix for a little bug

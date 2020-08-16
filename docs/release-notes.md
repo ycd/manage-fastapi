@@ -2,6 +2,13 @@
 
 ### Latest Changes
 
+### 0.1.5
+
+* Added showmodels
+* Added runserver
+* Fix little bugs
+* Update docs
+
 
 ### 0.1.41
 
