@@ -17,10 +17,10 @@ Application v1 created successfully!
 Let's see what it created. Now we have a new folder called **v1** and another folder called **v1** under our **tests** folder. Let's see what they have.
 
 ```python
-newproject/
+fastproject/
 ├── __init__.py
 ├── main.py
-├── newproject
+├── core
 │   ├── models
 │   │   ├── database.py
 │   │   └── __init__.py
@@ -41,7 +41,7 @@ newproject/
     └── __init__.py
 ```
 
-In our **`myproject/myapp`** we have new **1 directory and 4 files**, let's see what they have.
+In our **`fastproject/v1`** we have new **1 directory and 4 files**, let's see what they have.
 
 In our `endpoints` folder we are going create all the endpoints for this app, also `endpoints.py` comes with a basic Hello world router,
 

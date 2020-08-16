@@ -27,7 +27,7 @@
 
 **Source Code**: View it on [Github](https://github.com/ycd/manage-fastapi/)
 
-
+**Installation**: `pip install manage-fastapi`
 ---
 
 
@@ -44,12 +44,19 @@
 <img src="docs_assets/startproject.png" width=700>
 
 
-## Example folder structure for more check [documentation](https://ycd.github.io/manage-fastapi/)
+## Example folder structure with two commands :open_file_folder:
+
 ```
-newproject/
+manage-fastapi startproject fastproject
+manage-fastapi startapp v1
+```
+
+
+```
+fastproject/
 ├── __init__.py
 ├── main.py
-├── newproject
+├── core
 │   ├── models
 │   │   ├── database.py
 │   │   └── __init__.py
@@ -78,6 +85,12 @@ newproject/
 ## Release Notes :mega:
 
 ### Latest Changes
+
+### 0.1.4
+
+* Changed project architecture
+* Increased travis tests
+
 
 ### 0.1.3
 

@@ -40,10 +40,10 @@
 
 ## Example folder structure 📦 
 ```
-newproject/
+fastproject/
 ├── __init__.py
 ├── main.py
-├── newproject
+├── core
 │   ├── models
 │   │   ├── database.py
 │   │   └── __init__.py
