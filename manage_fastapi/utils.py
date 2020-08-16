@@ -160,13 +160,13 @@ def select_database():
 # TODO
 
 
-def run_server(server: str = ("uvicorn")):
-    import os
-    import subprocess
+# def run_server(server: str = ("uvicorn")):
+#     import os
+#     import subprocess
 
-    project_name = os.getenv("PROJECT_NAME")
-    print(project_name)
-    subprocess.run(
-        [server, f"{Path.cwd()}/{project_name}/main:app".replace("/", "."), "--reload"]
-    )
+#     project_name = os.getenv("PROJECT_NAME")
+#     print(project_name)
+#     subprocess.run(
+#         [server, f"{Path.cwd()}/{project_name}/main:app".replace("/", "."), "--reload"]
+#     )
 
