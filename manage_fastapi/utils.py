@@ -31,6 +31,7 @@ def start_project(
             parents=True, exist_ok=False
         )
         Path(f"{current_path}/{project_name}/__init__.py").touch()
+        Path(f"{current_path}/{project_name}/core/__init__.py").touch()
         Path(f"{current_path}/{project_name}/tests/__init__.py").touch()
         Path(f"{current_path}/{project_name}/core/schemas/__init__.py").touch()
 
@@ -155,11 +156,6 @@ def select_database():
 
 
 # TODO
-
-
-# TODO
-
-
 # def run_server(server: str = ("uvicorn")):
 #     import os
 #     import subprocess

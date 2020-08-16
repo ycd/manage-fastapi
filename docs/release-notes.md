@@ -2,6 +2,12 @@
 
 ### Latest Changes
 
+
+### 0.1.41
+
+* Quick fix for a little bug
+
+
 ### 0.1.4
 
 * Changed project architecture
