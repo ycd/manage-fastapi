@@ -28,6 +28,7 @@
 **Source Code**: View it on [Github](https://github.com/ycd/manage-fastapi/)
 
 **Installation**: `pip install manage-fastapi`
+
 ---
 
 
