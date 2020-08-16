@@ -35,7 +35,9 @@
 
 * #### Creates customizable **project boilerplate.**
 * #### Creates customizable **app boilerplate.**
-* #### More will come soon.
+* #### Handles the project structing for you.
+* #### Get fancy information about your Pydantic models.
+
 
 
 ## Example folder structure 📦 
