@@ -78,9 +78,11 @@ async def hello_fastapi():
 
 
 api_template = """# This is an example of how you can route and you are free to change 
-# this will not affect your be included unless you add
-# from {app_name}.api import api_router
-# to your main.py on your project folder
+# if you want to include this router to your app
+# go to your main.py then add this 
+# from {app_name}.api import api_router as {app_name}_router
+
+
 
 
 from fastapi import APIRouter
@@ -88,7 +90,7 @@ from fastapi import APIRouter
 from {app_name}.endpoints import endpoint
 
 api_router = APIRouter()
-api_router.include_router(endpoint.router, prefix="/hello", tags=["{app_name}"])
+api_router.include_router(endpoint.router, prefix="/{app_name}", tags=["{app_name}"])
 """
 
 test_template = """from fastapi.testclient import TestClient
