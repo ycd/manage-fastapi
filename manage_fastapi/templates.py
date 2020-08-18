@@ -90,7 +90,7 @@ from fastapi import APIRouter
 from {app_name}.endpoints import endpoint
 
 api_router = APIRouter()
-api_router.include_router(endpoint.router, prefix="/hello", tags=["{app_name}"])
+api_router.include_router(endpoint.router, prefix="/{app_name}", tags=["{app_name}"])
 """
 
 test_template = """from fastapi.testclient import TestClient
