@@ -5,7 +5,6 @@ from typing import Dict
 
 def find_models() -> Dict[str, str]:
     main_path = ""
-    total_count = 0
     result = {}
 
     for path, directories, files in os.walk(str(Path.cwd())):
@@ -15,7 +14,6 @@ def find_models() -> Dict[str, str]:
 
     for path, directories, files in os.walk(main_path):
         for file in files:
-            file_count = 0
             class_name_list = []
             if not file.startswith("__"):
                 with open(f"{path}/{file}", "r") as f:
@@ -24,8 +22,6 @@ def find_models() -> Dict[str, str]:
                             class_name = "".join(
                                 [i for i in (line.replace(" ", "(")).split("(")][1]
                             ).replace(":", "")
-                            total_count += 1
-                            file_count += 1
                             class_name_list.append(class_name)
 
                 result.update({file: class_name_list})
