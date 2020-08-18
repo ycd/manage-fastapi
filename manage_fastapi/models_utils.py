@@ -14,6 +14,7 @@ def find_models() -> Dict[str, str]:
 
     for path, directories, files in os.walk(main_path):
         for file in files:
+
             class_name_list = []
             if not file.startswith("__"):
                 with open(f"{path}/{file}", "r") as f:
@@ -29,7 +30,6 @@ def find_models() -> Dict[str, str]:
 
 
 def msg_box(msg: str, indent: int = 1, width: int = None, title: str = None) -> str:
-    msg
     space = " " * indent
     if not width:
         width = max((map(len, msg)))
