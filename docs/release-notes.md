@@ -10,6 +10,19 @@
 * Update docs
 
 
+### 0.1.51
+
+* Little update on API template
+
+
+### 0.1.5
+
+* Added showmodels
+* Added runserver
+* Fix little bugs
+* Update docs
+
+
 ### 0.1.41
 
 * Quick fix for a little bug

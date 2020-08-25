@@ -13,7 +13,7 @@
     <img src="https://img.shields.io/github/last-commit/ycd/manage-fastapi?style=for-the-badge" alt="Latest Commit">
 </a>
 <br />
-<a href="https://pypi.org/project/fastapi-utils" target="_blank">
+<a href="https://pypi.org/project/manage-fastapi" target="_blank">
     <img src="https://img.shields.io/pypi/v/manage-fastapi?style=for-the-badge" alt="Package version">
 </a>
     <img src="https://img.shields.io/pypi/pyversions/manage-fastapi?style=for-the-badge">
@@ -116,6 +116,10 @@ manage-fastapi showmodels
 ## Release Notes :mega:
 
 ### Latest Changes
+
+### 0.1.51
+
+* Little update on API template
 
 
 ### 0.1.5
