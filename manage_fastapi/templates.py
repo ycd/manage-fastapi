@@ -1,7 +1,7 @@
-database_options_template = """PostgreSQL - SQLite - MySQL [0]
-Tortoise                    [1]
-MongoDB                     [2]
-Create without Database     [9]
+database_options_template = """[0] PostgreSQL - SQLite - MySQL 
+[1] Tortoise                    
+[2] MongoDB                     
+[9] Create without Database     
 
 """
 
@@ -133,11 +133,11 @@ uvicorn==0.11.8
 tortoise_main_template = """from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
-from {project_name}.core.models.database import Example
+from core.models.database import Example
 from tortoise.contrib.fastapi import HTTPNotFoundError, register_tortoise
 
 
-from {project_name}.core.settings import settings
+from core.settings import settings
 
 app = FastAPI(title=settings.PROJECT_NAME)
 
@@ -184,7 +184,7 @@ Example = pydantic_model_creator(Example, name="Example")
 empty_main_template = """from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
-from {project_name}.core.settings import settings 
+from core.settings import settings 
 
 if settings.BACKEND_CORS_ORIGINS:
     app.add_middleware(
@@ -201,8 +201,8 @@ if settings.BACKEND_CORS_ORIGINS:
 async_sql_main_template = """from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
-from {project_name}.core.settings import settings 
-from {project_name}.core.models.database import database
+from core.settings import settings 
+from core.models.database import database
 
 app = FastAPI(title=settings.PROJECT_NAME)
 
@@ -226,7 +226,7 @@ async def disconnect_database():
 """
 
 async_sql_database_template = """import sqlalchemy
-from {project_name}.core.settings import settings
+from core.settings import settings
 import databases
 
 database = databases.Database(settings.DATABASE_URL)
@@ -248,8 +248,8 @@ metadata.create_all(engine)
 mongo_main_template = """from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
-from {project_name}.core.settings import settings 
-from {project_name}.core.models.utils import connect_to_mongo, close_mongo_connection
+from core.settings import settings 
+from core.models.utils import connect_to_mongo, close_mongo_connection
 
 app = FastAPI()
 
@@ -285,7 +285,7 @@ async def get_database() -> AsyncIOMotorClient:
 mongo_utils_template = """import logging
 
 from motor.motor_asyncio import AsyncIOMotorClient
-from {project_name}.core.models.database import db
+from core.models.database import db
 
 logger = logging.getLogger(__name__)
 
