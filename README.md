@@ -117,6 +117,13 @@ manage-fastapi showmodels
 
 ### Latest Changes
 
+
+### 0.1.52
+
+* Temporary fix for Path issue when running with uvicorn
+
+
+
 ### 0.1.51
 
 * Little update on API template
