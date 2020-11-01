@@ -1,25 +1,21 @@
-import pathlib
 from pathlib import Path
 
-import os
-
-from typing import Union, Dict
 from .templates import (
-    empty_main_template,
-    async_sql_main_template,
+    api_template,
     async_sql_database_template,
-    tortoise_main_template,
-    tortoise_database_template,
+    async_sql_main_template,
+    database_options_template,
+    empty_main_template,
+    endpoint_template,
     mongo_database_template,
     mongo_main_template,
     mongo_utils_template,
+    requirements_template,
     schema_template,
     settings_template,
-    api_template,
-    endpoint_template,
     test_template,
-    requirements_template,
-    database_options_template,
+    tortoise_database_template,
+    tortoise_main_template,
 )
 
 
@@ -125,7 +121,7 @@ def start_project(
 
     else:
         print(f"Project {project_name} created successfully!")
-        print(f"We created requirements file for your project needs.")
+        print("We created requirements file for your project needs.")
 
 
 def start_app(app_name: str, current_path: str = Path.cwd()) -> str:
@@ -162,4 +158,3 @@ def run_server() -> None:
     import subprocess
 
     subprocess.run(["uvicorn", "main:app", "--reload"])
-

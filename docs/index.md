@@ -41,7 +41,7 @@
 
 
 
-## Example folder structure 📦 
+## Example folder structure 📦
 ```
 fastproject/
 ├── __init__.py

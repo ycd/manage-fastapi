@@ -1,6 +1,4 @@
 from typer.testing import CliRunner
-import os
-from manage_fastapi.main import app
 
 runner = CliRunner()
 
@@ -10,4 +8,3 @@ runner = CliRunner()
 #     os.system("cd test_one")
 #     result = runner.invoke(app, ["runserver"])
 #     assert result.exit_code == 0
-

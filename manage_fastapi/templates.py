@@ -1,7 +1,7 @@
-database_options_template = """[0] PostgreSQL - SQLite - MySQL 
-[1] Tortoise                    
-[2] MongoDB                     
-[9] Create without Database     
+database_options_template = """[0] PostgreSQL - SQLite - MySQL
+[1] Tortoise
+[2] MongoDB
+[9] Create without Database
 
 """
 
@@ -28,7 +28,7 @@ from pydantic import BaseSettings, AnyHttpUrl, HttpUrl, validator
 
 
 class Settings(BaseSettings):
-    PROJECT_NAME: str = "{project_name}" 
+    PROJECT_NAME: str = "{project_name}"
 
     BACKEND_CORS_ORIGINS: List[AnyHttpUrl] = [
         "http://localhost",
@@ -53,7 +53,7 @@ class Settings(BaseSettings):
     DB_PORT: Optional[str] = ""
 
     # DATABASE_URL: str = f"{DB_SERVER}://{DB_USER}:{DB_PASSWORD}@{DB_PORT}:{DB_PORT}/{DB_NAME}"
-    
+
     DATABASE_URL = "sqlite:///./test.db"
 
 
@@ -77,9 +77,9 @@ async def hello_fastapi():
 """
 
 
-api_template = """# This is an example of how you can route and you are free to change 
+api_template = """# This is an example of how you can route and you are free to change
 # if you want to include this router to your app
-# go to your main.py then add this 
+# go to your main.py then add this
 # from {app_name}.api import api_router as {app_name}_router
 
 
@@ -184,7 +184,7 @@ Example = pydantic_model_creator(Example, name="Example")
 empty_main_template = """from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
-from core.settings import settings 
+from core.settings import settings
 
 if settings.BACKEND_CORS_ORIGINS:
     app.add_middleware(
@@ -201,7 +201,7 @@ if settings.BACKEND_CORS_ORIGINS:
 async_sql_main_template = """from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
-from core.settings import settings 
+from core.settings import settings
 from core.models.database import database
 
 app = FastAPI(title=settings.PROJECT_NAME)
@@ -248,7 +248,7 @@ metadata.create_all(engine)
 mongo_main_template = """from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
-from core.settings import settings 
+from core.settings import settings
 from core.models.utils import connect_to_mongo, close_mongo_connection
 
 app = FastAPI()

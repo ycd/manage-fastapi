@@ -1,8 +1,8 @@
+import os
+
 from typer.testing import CliRunner
 
 from manage_fastapi.main import app
-
-import os
 
 runner = CliRunner()
 

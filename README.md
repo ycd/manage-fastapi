@@ -156,8 +156,8 @@ manage-fastapi showmodels
 ### 0.1.2
 
 * Add tests
-* Fix and relocate success message 
-* Add travis 
+* Fix and relocate success message
+* Add travis
 
 ### 0.1.1
 
