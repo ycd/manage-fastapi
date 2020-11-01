@@ -21,8 +21,6 @@ classifiers = [
     "Programming Language :: Python :: 3.7",
     "Programming Language :: Python :: 3.8",
 ]
-exclude = ["manage_fastapi/tests"]
-
 
 
 [tool.poetry.dependencies]
@@ -31,7 +29,9 @@ typer = "^0.3.2"
 
 [tool.poetry.dev-dependencies]
 pytest = "^5.2"
-
+autoflake = "1.4"
+pre-commit = "^2.8"
+flake8 = "3.8.4"
 
 [tool.poetry.scripts]
 manage-fastapi = 'manage_fastapi.main:app'

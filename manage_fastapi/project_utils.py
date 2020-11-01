@@ -1,9 +1,6 @@
-import pathlib
 from pathlib import Path
 
-import os
 
-from typing import Union, Dict
 from .templates import (
     empty_main_template,
     async_sql_main_template,
@@ -162,4 +159,3 @@ def run_server() -> None:
     import subprocess
 
     subprocess.run(["uvicorn", "main:app", "--reload"])
-

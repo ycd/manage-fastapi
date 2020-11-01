@@ -6,5 +6,4 @@ python:
 install:
   - pip install typer pytest
 script:
-  - cd manage_fastapi
   - pytest
