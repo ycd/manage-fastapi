@@ -1,5 +1,7 @@
-from typer.testing import CliRunner
 import os
+
+from typer.testing import CliRunner
+
 from manage_fastapi.main import app
 
 runner = CliRunner()

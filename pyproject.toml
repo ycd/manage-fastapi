@@ -32,6 +32,8 @@ pytest = "^5.2"
 autoflake = "1.4"
 pre-commit = "^2.8"
 flake8 = "3.8.4"
+mypy = "0.790"
+isort = "^5.0"
 
 [tool.poetry.scripts]
 manage-fastapi = 'manage_fastapi.main:app'

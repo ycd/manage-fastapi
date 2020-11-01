@@ -1,7 +1,8 @@
-import typer
-from .project_utils import start_app, start_project, select_database, run_server
-from .models_utils import show_models
 import pkg_resources
+import typer
+
+from .models_utils import show_models
+from .project_utils import run_server, select_database, start_app, start_project
 
 app = typer.Typer(
     add_completion=False,

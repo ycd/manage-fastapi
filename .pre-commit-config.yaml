@@ -10,6 +10,26 @@ repos:
           - --expand-star-imports
           - --remove-duplicate-keys
           - --remove-unused-variables
+  - repo: local
+    hooks:
+      - id: flake8
+        name: flake8
+        entry: flake8
+        language: system
+        types: [python]
+  - repo: https://github.com/pre-commit/mirrors-isort
+    rev: v5.4.2
+    hooks:
+      - id: isort
+        args: ["--profile", "black"]
+  - repo: local
+    hooks:
+      - id: mypy
+        name: mypy
+        entry: mypy
+        language: system
+        exclude: ^(?!manage_fastapi/)
+        types: [python]
   - repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v3.3.0
     hooks:
