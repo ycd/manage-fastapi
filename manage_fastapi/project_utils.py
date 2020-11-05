@@ -16,6 +16,7 @@ from .templates import (
     test_template,
     tortoise_database_template,
     tortoise_main_template,
+    settings_without_database,
 )
 
 
@@ -115,6 +116,14 @@ def start_project(
         else:
             with open(f"{current_path}/{project_name}/main.py", "a+") as main:
                 main.write(empty_main_template.replace("{project_name}", project_name))
+
+            Path.unlink(f"{current_path}/{project_name}/core/settings.py")
+            with open(
+                f"{current_path}/{project_name}/core/settings.py", "a+"
+            ) as settings:
+                settings.write(
+                    settings_without_database.replace("{project_name}", project_name)
+                )
 
     except FileExistsError:
         print(f"Project {project_name} already exists!")
