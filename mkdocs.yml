@@ -15,8 +15,6 @@ nav:
   - Start new project: managing_projects/startproject.md
 - Manage Apps:
   - Start new app: managing_apps/startapp.md
-- Manage Models:
-  - Show models: managing_models/showmodels.md
 - Release Notes: 'release-notes.md'
 
 

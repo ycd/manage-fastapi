@@ -38,8 +38,7 @@
 * #### Creates customizable **project boilerplate.**
 * #### Creates customizable **app boilerplate.**
 * #### Handles the project structing for you.
-* #### Get fancy information about your Pydantic models.
-* #### Running development server.
+
 
 ## Starting a new project
 
@@ -77,34 +76,6 @@ fastproject/
     │   ├── endpoint.py
     │   └── __init__.py
     └── __init__.py
-```
-
-## Getting information about our Pydantic models.
-
-```
-manage-fastapi showmodels
-```
-
-
-## With this command we are getting a fancy output of our models.
-
-```
-╔════════════════════════════════╗
-║ item.py                        ║
-║ -------                        ║
-║ ItemBase                       ║
-║ ItemCreate                     ║
-║ ItemUpdate                     ║
-║ ItemInDBBase                   ║
-║ Item                           ║
-║ ItemInDB                       ║
-╚════════════════════════════════╝
-╔════════════════════════════════╗
-║ token.py                       ║
-║ --------                       ║
-║ Token                          ║
-║ TokenPayload                   ║
-╚════════════════════════════════╝
 ```
 
 
