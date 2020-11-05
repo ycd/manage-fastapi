@@ -16,6 +16,7 @@ from .templates import (
     test_template,
     tortoise_database_template,
     tortoise_main_template,
+    settings_without_database,
 )
 
 
@@ -116,6 +117,17 @@ def start_project(
             with open(f"{current_path}/{project_name}/main.py", "a+") as main:
                 main.write(empty_main_template.replace("{project_name}", project_name))
 
+            # Delete settings
+            settings = Path(f"{current_path}/{project_name}/core/settings.py")
+            settings.unlink()
+
+            with open(
+                f"{current_path}/{project_name}/core/settings.py", "a+"
+            ) as settings:
+                settings.write(
+                    settings_without_database.replace("{project_name}", project_name)
+                )
+
     except FileExistsError:
         print(f"Project {project_name} already exists!")
 
@@ -152,9 +164,3 @@ def start_app(app_name: str, current_path: str = Path.cwd()) -> str:
 def select_database() -> int:
     option = input(database_options_template + "Select a database: ")
     return option
-
-
-def run_server() -> None:
-    import subprocess
-
-    subprocess.run(["uvicorn", "main:app", "--reload"])

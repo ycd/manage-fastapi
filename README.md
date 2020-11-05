@@ -38,8 +38,7 @@
 * #### Creates customizable **project boilerplate.**
 * #### Creates customizable **app boilerplate.**
 * #### Handles the project structing for you.
-* #### Get fancy information about your Pydantic models.
-* #### Running development server.
+
 
 ## Starting a new project
 
@@ -79,34 +78,6 @@ fastproject/
     └── __init__.py
 ```
 
-## Getting information about our Pydantic models.
-
-```
-manage-fastapi showmodels
-```
-
-
-## With this command we are getting a fancy output of our models.
-
-```
-╔════════════════════════════════╗
-║ item.py                        ║
-║ -------                        ║
-║ ItemBase                       ║
-║ ItemCreate                     ║
-║ ItemUpdate                     ║
-║ ItemInDBBase                   ║
-║ Item                           ║
-║ ItemInDB                       ║
-╚════════════════════════════════╝
-╔════════════════════════════════╗
-║ token.py                       ║
-║ --------                       ║
-║ Token                          ║
-║ TokenPayload                   ║
-╚════════════════════════════════╝
-```
-
 
 ## Installation :pushpin:
 
@@ -117,6 +88,12 @@ manage-fastapi showmodels
 
 ### Latest Changes
 
+### 0.1.60
+
+* Delete run-server command
+* Delete show-models command
+* Create new template for settings without database
+* Small fix for project utils
 
 ### 0.1.52
 

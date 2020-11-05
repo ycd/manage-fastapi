@@ -2,12 +2,17 @@
 
 ### Latest Changes
 
-### 0.1.5
+### 0.1.60
 
-* Added showmodels
-* Added runserver
-* Fix little bugs
-* Update docs
+* Delete run-server command
+* Delete show-models command
+* Create new template for settings without database
+* Small fix for project utils
+
+
+### 0.1.52
+
+* Temporary fix for Path issue when running with uvicorn
 
 
 ### 0.1.51
