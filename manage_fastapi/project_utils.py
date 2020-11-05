@@ -117,7 +117,10 @@ def start_project(
             with open(f"{current_path}/{project_name}/main.py", "a+") as main:
                 main.write(empty_main_template.replace("{project_name}", project_name))
 
-            Path.unlink(f"{current_path}/{project_name}/core/settings.py")
+            # Delete settings
+            settings = Path(f"{current_path}/{project_name}/core/settings.py")
+            settings.unlink()
+
             with open(
                 f"{current_path}/{project_name}/core/settings.py", "a+"
             ) as settings:
