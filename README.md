@@ -88,6 +88,12 @@ fastproject/
 
 ### Latest Changes
 
+### 0.1.60
+
+* Delete run-server command
+* Delete show-models command
+* Create new template for settings without database
+* Small fix for project utils
 
 ### 0.1.52
 
