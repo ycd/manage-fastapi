@@ -152,9 +152,3 @@ def start_app(app_name: str, current_path: str = Path.cwd()) -> str:
 def select_database() -> int:
     option = input(database_options_template + "Select a database: ")
     return option
-
-
-def run_server() -> None:
-    import subprocess
-
-    subprocess.run(["uvicorn", "main:app", "--reload"])
