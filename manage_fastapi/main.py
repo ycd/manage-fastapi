@@ -1,7 +1,7 @@
 import pkg_resources
 import typer
 
-from .models_utils import show_models
+
 from .project_utils import run_server, select_database, start_app, start_project
 
 app = typer.Typer(
@@ -28,8 +28,3 @@ def runserver():
     if "uvicorn" not in installed_pkgs:
         print(f"Default(uvicorn) server not found in installed packages.")
     run_server()
-
-
-@app.command(help="Shows all Pydantic models")
-def showmodels():
-    show_models()
