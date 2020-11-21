@@ -7,10 +7,6 @@ The package plans are here. If you want to contribute with new ideas, or develop
 
 ## Checklist
 
-Date: November 21, 2020
-
-Author: Marcelo Trylesinski
-
 - [ ] License support on `startproject`.
 - [ ] Docker/Docker-compose support on `startproject`.
 - [ ] VSCode debugger support on `startproject` (available via docker).
@@ -18,3 +14,6 @@ Author: Marcelo Trylesinski
 - [ ] Add `.pre-commit-config.yaml` on `startproject`.
 - [ ] Support different CI on `startproject`.
 - [ ] Add support for `hypercorn` on `run`.
+- [ ] Add tests.
+- [ ] Integrate databases on `startproject`.
+- [ ] Create `migrations`/`migrate` command.
