@@ -2,7 +2,7 @@ import os
 import subprocess
 
 import typer
-from bullet import Bullet, Input, SlidePrompt, colors
+from bullet import Bullet, SlidePrompt, colors
 
 from manage_fastapi.constants import PYTHON_VERSIONS, Packaging
 from manage_fastapi.generator import generate_project
@@ -12,13 +12,12 @@ app = typer.Typer(help="Managing FastAPI projects made easy!", name="Manage Fast
 
 
 @app.command(help="Creates a FastAPI project.")
-def startproject(default: bool = typer.Option(False)):
+def startproject(name: str, default: bool = typer.Option(False)):
     if default:
-        context = Context(name="fastapi-project", packaging=Packaging.PIP, python="3.8")
+        context = Context(name=name, packaging=Packaging.PIP, python="3.8")
     else:
         cli = SlidePrompt(
             [
-                Input("Insert the project's name: "),
                 Bullet(
                     prompt="Choose the package manager:",
                     choices=list(Packaging),
@@ -38,9 +37,7 @@ def startproject(default: bool = typer.Option(False)):
             ],
         )
         result = cli.launch()
-        context = Context(
-            name=result[0][1], packaging=result[1][1], python=result[2][1]
-        )
+        context = Context(name=name, packaging=result[0][1], python=result[1][1])
     generate_project(context)
 
 
