@@ -17,7 +17,6 @@ __pycache__/
 *.py[cod]
 *$py.class
 
-
 site
 
 # Distribution / packaging
@@ -62,11 +61,6 @@ coverage.xml
 .hypothesis/
 .pytest_cache/
 
-
-
-
-
-
 # PyBuilder
 target/
 
@@ -88,13 +82,13 @@ ENV/
 env.bak/
 venv.bak/
 
-
 # Rope project settings
 .ropeproject
-
-
 
 # mypy
 .mypy_cache/
 .dmypy.json
 dmypy.json
+
+# Temporary Files
+tmp
