@@ -1,3 +1,6 @@
+import os
+import subprocess
+
 import typer
 from bullet import Bullet, Input, SlidePrompt, colors
 
@@ -44,3 +47,12 @@ def startproject(default: bool = typer.Option(False)):
 @app.command(help="Creates a FastAPI component.")
 def startapp():
     ...
+
+
+@app.command(help="Run a FastAPI application.")
+def run(prod: bool = typer.Option(False)):
+    args = []
+    if not prod:
+        args.append("--reload")
+    app_file = os.getenv("FASTAPI_APP", "app.main")
+    subprocess.call(["uvicorn", f"{app_file}:app", *args])
