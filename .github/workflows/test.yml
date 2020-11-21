@@ -11,7 +11,7 @@ jobs:
     strategy:
       matrix:
         python-version: [3.6, 3.7, 3.8, 3.9]
-      fail-fast: false
+      fail-fast: true
 
     steps:
       - uses: actions/checkout@v2
@@ -24,6 +24,6 @@ jobs:
       - name: Install Dependencies
         run: poetry install
       - name: Test
-        run: pytest --cov=manage_fastapi tests/
+        run: poetry run pytest tests/ --cov=manage_fastapi --cov-report=term-missing:skip-covered --cov-report=xml
       - name: Upload coverage
         uses: codecov/codecov-action@v1
