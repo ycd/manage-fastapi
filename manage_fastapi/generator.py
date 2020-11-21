@@ -15,6 +15,7 @@ def generate_project(context: Context):
             extra_context=context.dict(),
             no_input=True,
         )
-        typer.echo(f'"{context.name}" created successfully! 🎉')
     except OutputDirExistsException:
         typer.echo(f'"{context.name}" already exists. 😞')
+    else:
+        typer.echo("FastAPI project created successfully! 🎉")
