@@ -4,5 +4,6 @@
   "username": "{{ cookiecutter.username }}",
   "email": "{{ cookiecutter.email }}",
   "python": "{{ cookiecutter.python }}",
-  "fastapi": "{{ cookiecutter.fastapi }}"
+  "fastapi": "{{ cookiecutter.fastapi }}",
+  "gitignore": ".gitignore"
 }
