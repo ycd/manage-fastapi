@@ -27,7 +27,7 @@ class Context(BaseModel):
         return values
 
     @validator("python")
-    def validate_python_version(cls, value):
+    def validate_python_version(cls, value: str):
         if value not in PYTHON_VERSIONS:
             raise ValueError(f"Invalid Python version: {value}.")
         return value

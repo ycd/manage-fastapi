@@ -14,8 +14,8 @@ class BaseEnum(Enum, metaclass=BaseMetadataEnum):
 
 
 class Packaging(BaseEnum):
-    PIP = "📃 pip"
-    POETRY = "🧾 poetry"
+    PIP = "pip"
+    POETRY = "poetry"
 
 
 PYTHON_VERSIONS = ("3.6", "3.7", "3.8", "3.9")
