@@ -1,0 +1,8 @@
+{
+  "name": "{{ cookiecutter.name }}",
+  "packaging": "{{ cookiecutter.packaging }}",
+  "username": "{{ cookiecutter.username }}",
+  "email": "{{ cookiecutter.email }}",
+  "python": "{{ cookiecutter.python }}",
+  "fastapi": "{{ cookiecutter.fastapi }}"
+}
