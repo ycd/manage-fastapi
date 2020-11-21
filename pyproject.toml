@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "manage-fastapi"
-version = "1.0.0"
+version = "0.2.0"
 description = "Managing FastAPI projects made easy."
 authors = [
     "ycd <yagizcanilbey1903@gmail.com>",
@@ -32,7 +32,7 @@ python = "^3.6.1"
 typer = "^0.3.2"
 bullet = "^2.2.0"
 cookiecutter = "^1.7.2"
-pydantic = {extras = ["email"], version = "^1.7.2"}
+pydantic = { extras = ["email"], version = "^1.7.2" }
 
 [tool.poetry.dev-dependencies]
 pytest = "^5.2"
