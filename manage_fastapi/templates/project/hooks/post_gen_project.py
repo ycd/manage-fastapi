@@ -27,8 +27,15 @@ def set_packaging():
     remove_paths(paths)
 
 
+def set_pre_commit():
+    pre_commit: bool = eval("{{ cookiecutter.pre_commit }}")
+    if pre_commit is False:
+        remove_paths([".pre-commit-config.yaml"])
+
+
 def main():
     set_packaging()
+    set_pre_commit()
 
 
 if __name__ == "__main__":

@@ -2,8 +2,11 @@ import re
 from typing import TypeVar
 
 from bullet import Bullet, SlidePrompt, colors
+from bullet.client import YesNo
 
 EnumType = TypeVar("EnumType")
+
+WHITE_FOREGROUND = colors.foreground["white"]
 
 
 def camel_to_snake(text: str) -> str:
@@ -17,8 +20,14 @@ def bullet(choices: EnumType) -> Bullet:
         choices=list(choices),  # type: ignore
         bullet=" >",
         margin=2,
-        word_color=colors.foreground["white"],
-        word_on_switch=colors.foreground["white"],
+        word_color=WHITE_FOREGROUND,
+        word_on_switch=WHITE_FOREGROUND,
+    )
+
+
+def yes_no(option: str) -> YesNo:
+    return YesNo(
+        prompt=f"Do you want {option}?", default="n", word_color=WHITE_FOREGROUND
     )
 
 

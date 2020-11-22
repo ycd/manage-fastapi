@@ -8,5 +8,6 @@
   "fastapi": "{{ cookiecutter.fastapi }}",
   "gitignore": ".gitignore",
   "license": "{{ cookiecutter.license }}",
-  "year": "{{ cookiecutter.year }}"
+  "year": "{{ cookiecutter.year }}",
+  "pre_commit": "{{ cookiecutter.pre_commit }}"
 }
