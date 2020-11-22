@@ -1,21 +1,21 @@
 import subprocess
 from typing import Optional
 
-from pydantic import BaseModel, EmailStr, root_validator, validator
+from pydantic import BaseModel, EmailStr, root_validator
 
 from manage_fastapi.config import FASTAPI_VERSION
-from manage_fastapi.constants import PYTHON_VERSIONS, Packaging
+from manage_fastapi.constants import PackageManager, PythonVersion
 
 
 class Context(BaseModel):
     name: str
     folder_name: str
-    packaging: Packaging
+    packaging: PackageManager
 
     username: Optional[str] = None
     email: Optional[EmailStr] = None
 
-    python: str
+    python: PythonVersion
     fastapi: str = FASTAPI_VERSION
 
     @root_validator(pre=True)
@@ -31,9 +31,3 @@ class Context(BaseModel):
             ...
         values["folder_name"] = values["name"].lower().replace(" ", "-").strip()
         return values
-
-    @validator("python")
-    def validate_python_version(cls, value: str):
-        if value not in PYTHON_VERSIONS:
-            raise ValueError(f"Invalid Python version: {value}.")
-        return value

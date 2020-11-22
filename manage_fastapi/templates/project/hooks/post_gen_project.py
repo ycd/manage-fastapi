@@ -1,6 +1,6 @@
 import os
 
-from manage_fastapi.constants import Packaging
+from manage_fastapi.constants import PackageManager
 
 
 def remove_paths(paths: list):
@@ -19,9 +19,9 @@ def set_packaging():
     packaging = "{{ cookiecutter.packaging }}"
     paths = []
 
-    if packaging == str(Packaging.PIP):
+    if packaging == str(PackageManager.PIP):
         paths = ["poetry.lock", "pyproject.toml"]
-    elif packaging == str(Packaging.POETRY):
+    elif packaging == str(PackageManager.POETRY):
         paths = ["requirements.txt"]
 
     remove_paths(paths)
