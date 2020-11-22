@@ -1,9 +1,8 @@
 from unittest.mock import patch
 
 import pytest
-from typer.testing import CliRunner
-
 from manage_fastapi.main import app
+from typer.testing import CliRunner
 
 runner = CliRunner()
 
@@ -11,11 +10,19 @@ CREATED_SUCCESSFULLY = "FastAPI project created successfully! 🎉\n"
 ALREADY_EXISTS = "Folder 'potato' already exists. 😞\n"
 
 
-@pytest.mark.parametrize("pkg", ["pip", "poetry"])
-@pytest.mark.parametrize("py", ["3.6", "3.7", "3.8", "3.9"])
-def test_startproject(project_name: str, pkg: str, py: str):
+@pytest.mark.parametrize("package_", ["pip", "poetry"])
+@pytest.mark.parametrize("python", ["3.6", "3.7", "3.8"])
+@pytest.mark.parametrize(
+    "license_", ["MIT", "BSD-3", "GNU GPL v3.0", "Apache Software License 2.0"]
+)
+@pytest.mark.parametrize("pre_commit", [True, False])
+def test_startproject(
+    project_name: str, package_: str, python: str, license_: str, pre_commit: bool
+):
     package = "manage_fastapi.main.launch_cli"
-    with patch(package, return_value=[pkg, py]) as mock_obj:
+    with patch(
+        package, return_value=[package_, python, license_, pre_commit]
+    ) as mock_obj:
         result = runner.invoke(app, ["startproject", project_name])
         assert mock_obj.assert_called_once
         assert result.output == CREATED_SUCCESSFULLY
