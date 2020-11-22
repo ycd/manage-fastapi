@@ -3,7 +3,7 @@ import subprocess
 
 import typer
 
-from manage_fastapi.constants import PackageManager, PythonVersion
+from manage_fastapi.constants import License, PackageManager, PythonVersion
 from manage_fastapi.generator import generate_project
 from manage_fastapi.helpers import bullet, launch_cli
 from manage_fastapi.schemas import Context
@@ -15,11 +15,18 @@ app = typer.Typer(help="Managing FastAPI projects made easy!", name="Manage Fast
 def startproject(name: str, default: bool = typer.Option(False)):
     if default:
         context = Context(
-            name=name, packaging=PackageManager.PIP, python=PythonVersion.THREE_DOT_EIG
+            name=name,
+            packaging=PackageManager.PIP,
+            python=PythonVersion.THREE_DOT_EIG,
+            license=License.MIT,
         )
     else:
-        result = launch_cli(bullet(PackageManager), bullet(PythonVersion))
-        context = Context(name=name, packaging=result[0], python=result[1])
+        result = launch_cli(
+            bullet(PackageManager), bullet(PythonVersion), bullet(License)
+        )
+        context = Context(
+            name=name, packaging=result[0], python=result[1], license=result[2]
+        )
     generate_project(context)
 
 

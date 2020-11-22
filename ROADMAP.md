@@ -7,7 +7,7 @@ The package plans are here. If you want to contribute with new ideas, or develop
 
 ## Checklist
 
-- [ ] License support on `startproject`.
+- [X] License support on `startproject`.
 - [ ] Docker/Docker-compose support on `startproject`.
 - [ ] VSCode debugger support on `startproject` (available via docker).
 - [ ] Add basic linter tools on `startproject` (flake8, mypy and isort).
