@@ -1,3 +1,5 @@
 from fastapi import FastAPI
 
-app = FastAPI()
+from app.config import settings
+
+app = FastAPI(title=settings.PROJECT_NAME)

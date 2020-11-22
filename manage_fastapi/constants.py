@@ -14,7 +14,7 @@ class BaseMetadataEnum(EnumMeta):
             return True
 
 
-class BaseEnum(Enum, metaclass=BaseMetadataEnum):
+class BaseEnum(str, Enum, metaclass=BaseMetadataEnum):
     """Base enum class."""
 
 

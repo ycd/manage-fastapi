@@ -1,11 +1,17 @@
 import subprocess
 from datetime import datetime
+from enum import Enum
 from typing import Optional
 
 from pydantic import BaseModel, EmailStr, root_validator
+from pydantic.class_validators import validator
 
 from manage_fastapi.config import FASTAPI_VERSION
 from manage_fastapi.constants import PackageManager, PythonVersion
+
+
+def enum_to_str(enum: Enum) -> str:
+    return enum.value
 
 
 class Context(BaseModel):
@@ -36,3 +42,5 @@ class Context(BaseModel):
         values["folder_name"] = values["name"].lower().replace(" ", "-").strip()
         values["year"] = datetime.today().year
         return values
+
+    _python = validator("python", allow_reuse=True)(enum_to_str)
