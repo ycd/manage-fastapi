@@ -9,6 +9,16 @@ python = "^{{ cookiecutter.python }}"
 fastapi = "^{{ cookiecutter.fastapi }}"
 
 [tool.poetry.dev-dependencies]
+pytest = "^5.2"
+pytest-cov = "^2.10.1"
+{%- if cookiecutter.pre_commit == "True" %}
+autoflake = "^1.4"
+flake8 = "^3.8.4"
+mypy = "^0.790"
+isort = "^5.0"
+pre-commit = "^2.8.2"
+black = "^20.8b1"
+{%- endif %}
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]

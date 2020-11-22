@@ -28,6 +28,8 @@ class Context(BaseModel):
     license: str
     year: int
 
+    pre_commit: bool
+
     @root_validator(pre=True)
     def git_info(cls, values: dict):
         try:
