@@ -7,4 +7,7 @@ import pytest
 def project_name():
     name = "potato"
     yield name
-    shutil.rmtree("potato")
+    try:
+        shutil.rmtree(name)
+    except FileNotFoundError:
+        ...
