@@ -1,4 +1,5 @@
 import subprocess
+from typing import Optional
 
 from pydantic import BaseModel, EmailStr, root_validator, validator
 
@@ -10,20 +11,23 @@ class Context(BaseModel):
     name: str
     packaging: Packaging
 
-    username: str
-    email: EmailStr
+    username: Optional[str] = None
+    email: Optional[EmailStr] = None
 
     python: str
     fastapi: str = FASTAPI_VERSION
 
     @root_validator(pre=True)
     def git_info(cls, values: dict):
-        values["username"] = subprocess.check_output(
-            ["git", "config", "--get", "user.name"]
-        )
-        values["email"] = subprocess.check_output(
-            ["git", "config", "--get", "user.email"]
-        )
+        try:
+            values["username"] = subprocess.check_output(
+                ["git", "config", "--get", "user.name"]
+            )
+            values["email"] = subprocess.check_output(
+                ["git", "config", "--get", "user.email"]
+            )
+        except subprocess.CalledProcessError:
+            ...
         return values
 
     @validator("python")

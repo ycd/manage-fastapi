@@ -2,7 +2,7 @@
 name = "{{ cookiecutter.name }}"
 version = "0.1.0"
 description = ""
-authors = ["{{ cookiecutter.username }} <{{ cookiecutter.email }}>"]
+{% if cookiecutter.username != None %}authors = ["{{ cookiecutter.username }} <{{ cookiecutter.email }}>"]{% endif %}
 
 [tool.poetry.dependencies]
 python = "^{{ cookiecutter.python }}"
