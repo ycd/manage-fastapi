@@ -1,5 +1,6 @@
 {
   "name": "{{ cookiecutter.name }}",
+  "folder_name": "{{ cookiecutter.folder_name }}",
   "packaging": "{{ cookiecutter.packaging }}",
   "username": "{{ cookiecutter.username }}",
   "email": "{{ cookiecutter.email }}",
