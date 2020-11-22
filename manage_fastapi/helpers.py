@@ -1,12 +1,20 @@
-from typing import Iterable, Tuple
+import re
+from typing import TypeVar
 
 from bullet import Bullet, SlidePrompt, colors
 
+EnumType = TypeVar("EnumType")
 
-def bullet(name: str, prompt: str, choices: Iterable) -> Tuple[str, Bullet]:
-    return name, Bullet(
-        prompt=prompt,
-        choices=choices,
+
+def camel_to_snake(text: str) -> str:
+    return re.sub(r"(?<!^)(?=[A-Z])", "_", text).lower()
+
+
+def bullet(choices: EnumType) -> Bullet:
+    prompt = camel_to_snake(choices.__name__).replace("_", " ")  # type: ignore
+    return Bullet(
+        prompt=f"Select the {prompt}: ",
+        choices=list(choices),  # type: ignore
         bullet=" >",
         margin=2,
         word_color=colors.foreground["white"],
@@ -14,6 +22,6 @@ def bullet(name: str, prompt: str, choices: Iterable) -> Tuple[str, Bullet]:
     )
 
 
-def launch_cli(*prompt_objs: Tuple[str, Bullet]):
-    result = SlidePrompt([obj[1] for obj in prompt_objs]).launch()
-    return {obj[0]: result[i][1] for i, obj in enumerate(prompt_objs)}
+def launch_cli(*prompt_objs: Bullet):
+    results = SlidePrompt(prompt_objs).launch()
+    return [result[1] for result in results]
