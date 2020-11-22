@@ -6,5 +6,7 @@
   "email": "{{ cookiecutter.email }}",
   "python": "{{ cookiecutter.python }}",
   "fastapi": "{{ cookiecutter.fastapi }}",
-  "gitignore": ".gitignore"
+  "gitignore": ".gitignore",
+  "license": "{{ cookiecutter.license }}",
+  "year": "{{ cookiecutter.year }}"
 }

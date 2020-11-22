@@ -28,3 +28,10 @@ class PythonVersion(BaseEnum):
     THREE_DOT_SEV = "3.7"
     THREE_DOT_EIG = "3.8"
     THREE_DOT_NIN = "3.9"
+
+
+class License(BaseEnum):
+    MIT = "MIT"
+    BSD = "BSD-3"
+    GNU = "GNU GPL v3.0"
+    APACHE = "Apache Software License 2.0"

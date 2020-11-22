@@ -1,4 +1,5 @@
 import subprocess
+from datetime import datetime
 from typing import Optional
 
 from pydantic import BaseModel, EmailStr, root_validator
@@ -18,6 +19,9 @@ class Context(BaseModel):
     python: PythonVersion
     fastapi: str = FASTAPI_VERSION
 
+    license: str
+    year: int
+
     @root_validator(pre=True)
     def git_info(cls, values: dict):
         try:
@@ -30,4 +34,5 @@ class Context(BaseModel):
         except subprocess.CalledProcessError:
             ...
         values["folder_name"] = values["name"].lower().replace(" ", "-").strip()
+        values["year"] = datetime.today().year
         return values
