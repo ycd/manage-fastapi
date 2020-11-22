@@ -16,6 +16,6 @@ def generate_project(context: Context):
             no_input=True,
         )
     except OutputDirExistsException:
-        typer.echo(f'"{context.name}" already exists. 😞')
+        typer.echo(f"Folder '{context.folder_name}' already exists. 😞")
     else:
         typer.echo("FastAPI project created successfully! 🎉")

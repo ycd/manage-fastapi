@@ -9,6 +9,7 @@ from manage_fastapi.constants import PYTHON_VERSIONS, Packaging
 
 class Context(BaseModel):
     name: str
+    folder_name: str
     packaging: Packaging
 
     username: Optional[str] = None
@@ -28,6 +29,7 @@ class Context(BaseModel):
             )
         except subprocess.CalledProcessError:
             ...
+        values["folder_name"] = values["name"].lower().replace(" ", "-").strip()
         return values
 
     @validator("python")
