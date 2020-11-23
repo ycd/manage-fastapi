@@ -23,6 +23,7 @@ class Context(BaseModel):
     year: int
 
     pre_commit: bool
+    docker: bool
 
     @root_validator(pre=True)
     def git_info(cls, values: dict):

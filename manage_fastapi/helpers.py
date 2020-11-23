@@ -1,5 +1,5 @@
 import re
-from typing import TypeVar
+from typing import Tuple, TypeVar
 
 from bullet import Bullet, SlidePrompt, colors
 from bullet.client import YesNo
@@ -31,6 +31,7 @@ def yes_no(option: str) -> YesNo:
     )
 
 
-def launch_cli(*prompt_objs: Bullet):
-    results = SlidePrompt(prompt_objs).launch()
-    return [result[1] for result in results]
+def launch_cli(*prompt_objs: Tuple[str, Bullet]):
+    names, objs = zip(*prompt_objs)
+    results = SlidePrompt(objs).launch()
+    return {name: result[1] for name, result in zip(names, results)}
