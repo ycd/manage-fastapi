@@ -20,21 +20,17 @@ def startproject(name: str, default: bool = typer.Option(False)):
             python=PythonVersion.THREE_DOT_EIG,
             license=License.MIT,
             pre_commit=True,
+            docker=True,
         )
     else:
         result = launch_cli(
-            bullet(PackageManager),
-            bullet(PythonVersion),
-            bullet(License),
-            yes_no("pre commit"),
+            ("packaging", bullet(PackageManager)),
+            ("python", bullet(PythonVersion)),
+            ("license", bullet(License)),
+            ("pre_commit", yes_no("pre commit")),
+            ("docker", yes_no("docker")),
         )
-        context = Context(
-            name=name,
-            packaging=result[0],
-            python=result[1],
-            license=result[2],
-            pre_commit=result[3],
-        )
+        context = Context(name=name, **result)
     generate_project(context)
 
 

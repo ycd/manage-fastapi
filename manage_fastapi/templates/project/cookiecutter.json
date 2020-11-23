@@ -1,13 +1,15 @@
 {
-  "name": "{{ cookiecutter.name }}",
-  "folder_name": "{{ cookiecutter.folder_name }}",
-  "packaging": "{{ cookiecutter.packaging }}",
-  "username": "{{ cookiecutter.username }}",
+  "docker": "{{ cookiecutter.docker }}",
   "email": "{{ cookiecutter.email }}",
-  "python": "{{ cookiecutter.python }}",
+  "env": ".env",
   "fastapi": "{{ cookiecutter.fastapi }}",
+  "folder_name": "{{ cookiecutter.folder_name }}",
   "gitignore": ".gitignore",
   "license": "{{ cookiecutter.license }}",
-  "year": "{{ cookiecutter.year }}",
-  "pre_commit": "{{ cookiecutter.pre_commit }}"
+  "name": "{{ cookiecutter.name }}",
+  "packaging": "{{ cookiecutter.packaging }}",
+  "pre_commit": "{{ cookiecutter.pre_commit }}",
+  "python": "{{ cookiecutter.python }}",
+  "username": "{{ cookiecutter.username }}",
+  "year": "{{ cookiecutter.year }}"
 }

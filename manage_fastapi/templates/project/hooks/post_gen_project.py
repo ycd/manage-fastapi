@@ -33,9 +33,16 @@ def set_pre_commit():
         remove_paths([".pre-commit-config.yaml", "setup.cfg"])
 
 
+def set_docker():
+    docker: bool = eval("{{ cookiecutter.docker }}")
+    if docker is False:
+        remove_paths(["Dockerfile", "docker-compose.yaml"])
+
+
 def main():
     set_packaging()
     set_pre_commit()
+    set_docker()
 
 
 if __name__ == "__main__":

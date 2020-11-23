@@ -18,6 +18,7 @@ The package plans are here. If you want to contribute with new ideas, or develop
 - [ ] Integrate databases on `startproject`.
 - [ ] Create `migrations`/`migrate` command.
 - [ ] Different Authentication support on `startproject`.
+- [ ] Configuration file support: being able to run `fastapi startproject --config-file myconfig`.
 
 ## Questions
 
