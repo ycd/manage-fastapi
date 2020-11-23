@@ -18,6 +18,7 @@ ALREADY_EXISTS = "Folder 'potato' already exists. 😞\n"
 )
 @pytest.mark.parametrize("pre_commit", [True, False])
 @pytest.mark.parametrize("docker", [True, False])
+@pytest.mark.parametrize("database", ["Postgres", "None"])
 def test_startproject(
     project_name: str,
     packaging: str,
@@ -25,6 +26,7 @@ def test_startproject(
     license_: str,
     pre_commit: bool,
     docker: bool,
+    database: str,
 ):
     package = "manage_fastapi.main.launch_cli"
     with patch(package) as mock_obj:
@@ -36,6 +38,7 @@ def test_startproject(
                 "license": license_,
                 "pre_commit": pre_commit,
                 "docker": docker,
+                "database": database,
             }
 
         mock_obj.side_effect = side_effect

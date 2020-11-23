@@ -34,3 +34,8 @@ class License(BaseEnum):
     BSD = "BSD-3"
     GNU = "GNU GPL v3.0"
     APACHE = "Apache Software License 2.0"
+
+
+class Database(BaseEnum):
+    POSTGRES = "Postgres"
+    NONE = "None"

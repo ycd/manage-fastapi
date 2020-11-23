@@ -3,7 +3,7 @@ import subprocess
 
 import typer
 
-from manage_fastapi.constants import License, PackageManager, PythonVersion
+from manage_fastapi.constants import Database, License, PackageManager, PythonVersion
 from manage_fastapi.generator import generate_project
 from manage_fastapi.helpers import bullet, launch_cli, yes_no
 from manage_fastapi.schemas import Context
@@ -21,6 +21,7 @@ def startproject(name: str, default: bool = typer.Option(False)):
             license=License.MIT,
             pre_commit=True,
             docker=True,
+            database=Database.NONE,
         )
     else:
         result = launch_cli(
@@ -29,6 +30,7 @@ def startproject(name: str, default: bool = typer.Option(False)):
             ("license", bullet(License)),
             ("pre_commit", yes_no("pre commit")),
             ("docker", yes_no("docker")),
+            ("database", bullet(Database)),
         )
         context = Context(name=name, **result)
     generate_project(context)

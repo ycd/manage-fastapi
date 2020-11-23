@@ -5,7 +5,7 @@ from typing import Optional
 from pydantic import BaseModel, EmailStr, root_validator
 
 from manage_fastapi.config import FASTAPI_VERSION
-from manage_fastapi.constants import License, PackageManager, PythonVersion
+from manage_fastapi.constants import Database, License, PackageManager, PythonVersion
 
 
 class Context(BaseModel):
@@ -24,6 +24,8 @@ class Context(BaseModel):
 
     pre_commit: bool
     docker: bool
+
+    database: Database
 
     @root_validator(pre=True)
     def git_info(cls, values: dict):

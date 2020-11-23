@@ -7,18 +7,23 @@ The package plans are here. If you want to contribute with new ideas, or develop
 
 ## Checklist
 
+### Must
 - [X] License support on `startproject`.
 - [X] Docker/Docker-compose support on `startproject`.
-- [ ] VSCode debugger support on `startproject` (available via docker).
 - [X] Add basic linter tools on `startproject` (flake8, mypy and isort).
 - [X] Add `.pre-commit-config.yaml` on `startproject`.
+- [ ] Integrate databases on `startproject`.
+- [ ] Different Authentication support on `startproject`.
+- [ ] Add tests.
+
+### Nice to have
+- [ ] VSCode debugger support on `startproject` (available via docker).
 - [ ] Support different CI on `startproject`.
 - [ ] Add support for `hypercorn` on `run`.
-- [ ] Add tests.
-- [ ] Integrate databases on `startproject`.
 - [ ] Create `migrations`/`migrate` command.
-- [ ] Different Authentication support on `startproject`.
 - [ ] Configuration file support: being able to run `fastapi startproject --config-file myconfig`.
+- [ ] Add `logger` to `startproject` structure.
+- [ ] Base CRUD class to `startproject`.
 
 ## Questions
 

@@ -1,2 +1,9 @@
 PROJECT_NAME={{ cookiecutter.name }}
 BACKEND_CORS_ORIGINS=["http://localhost:8000", "https://localhost:8000", "http://localhost", "https://localhost"]
+
+{% if cookiecutter.database == "Postgres" %}
+POSTGRES_USER=postgres
+POSTGRES_PASSWORD=postgres
+POSTGRES_SERVER=database
+POSTGRES_DB=app
+{% endif %}

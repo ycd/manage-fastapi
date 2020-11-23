@@ -1,4 +1,5 @@
 {
+  "database": "{{ cookiecutter.database }}",
   "docker": "{{ cookiecutter.docker }}",
   "email": "{{ cookiecutter.email }}",
   "env": ".env",

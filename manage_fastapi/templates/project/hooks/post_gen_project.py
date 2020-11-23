@@ -1,6 +1,6 @@
 import os
 
-from manage_fastapi.constants import PackageManager
+from manage_fastapi.constants import Database, PackageManager
 
 
 def remove_paths(paths: list):
@@ -37,6 +37,16 @@ def set_docker():
     docker: bool = eval("{{ cookiecutter.docker }}")
     if docker is False:
         remove_paths(["Dockerfile", "docker-compose.yaml"])
+
+
+def set_database():
+    database = "{{ cookiecutter.database }}"
+    paths = []
+
+    if database == Database.NONE:
+        paths = ["app/database.py"]
+
+    remove_paths(paths)
 
 
 def main():
