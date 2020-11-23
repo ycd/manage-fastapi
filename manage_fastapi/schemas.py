@@ -1,17 +1,11 @@
 import subprocess
 from datetime import datetime
-from enum import Enum
 from typing import Optional
 
 from pydantic import BaseModel, EmailStr, root_validator
-from pydantic.class_validators import validator
 
 from manage_fastapi.config import FASTAPI_VERSION
-from manage_fastapi.constants import PackageManager, PythonVersion
-
-
-def enum_to_str(enum: Enum) -> str:
-    return enum.value
+from manage_fastapi.constants import License, PackageManager, PythonVersion
 
 
 class Context(BaseModel):
@@ -25,7 +19,7 @@ class Context(BaseModel):
     python: PythonVersion
     fastapi: str = FASTAPI_VERSION
 
-    license: str
+    license: License
     year: int
 
     pre_commit: bool
@@ -45,4 +39,5 @@ class Context(BaseModel):
         values["year"] = datetime.today().year
         return values
 
-    _python = validator("python", allow_reuse=True)(enum_to_str)
+    class Config:
+        use_enum_values = True

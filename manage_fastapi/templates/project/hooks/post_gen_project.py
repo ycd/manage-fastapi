@@ -19,9 +19,9 @@ def set_packaging():
     packaging = "{{ cookiecutter.packaging }}"
     paths = []
 
-    if packaging == str(PackageManager.PIP):
+    if packaging == PackageManager.PIP:
         paths = ["poetry.lock", "pyproject.toml"]
-    elif packaging == str(PackageManager.POETRY):
+    elif packaging == PackageManager.POETRY:
         paths = ["requirements.txt"]
 
     remove_paths(paths)
@@ -30,7 +30,7 @@ def set_packaging():
 def set_pre_commit():
     pre_commit: bool = eval("{{ cookiecutter.pre_commit }}")
     if pre_commit is False:
-        remove_paths([".pre-commit-config.yaml", ["setup.cfg"]])
+        remove_paths([".pre-commit-config.yaml", "setup.cfg"])
 
 
 def main():
