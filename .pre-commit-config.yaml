@@ -3,7 +3,7 @@ repos:
     rev: v1.4
     hooks:
       - id: autoflake
-        exclude: .*/__init__.py
+        exclude: .*/__init__.py|.*/templates/.*
         args:
           - --in-place
           - --remove-all-unused-imports
@@ -15,6 +15,7 @@ repos:
       - id: flake8
         name: flake8
         entry: flake8
+        exclude: .*/templates/.*
         language: system
         types: [python]
   - repo: https://github.com/pre-commit/mirrors-isort
@@ -28,6 +29,7 @@ repos:
         name: mypy
         entry: mypy
         language: system
+        exclude: .*/templates/.*
         types: [python]
   - repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v3.3.0

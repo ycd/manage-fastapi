@@ -1,13 +1,14 @@
 {% if cookiecutter.database == "Postgres" %}
 from typing import Any, Dict, List, Optional, Union
 
-from pydantic import AnyHttpUrl, BaseSettings, validator, PostgresDsn
+from pydantic import AnyHttpUrl, BaseSettings, PostgresDsn, validator
+
 {% else %}
 from typing import List, Union
 
 from pydantic import AnyHttpUrl, BaseSettings, validator
-{% endif %}
 
+{% endif %}
 
 class Settings(BaseSettings):
     PROJECT_NAME: str
@@ -21,7 +22,7 @@ class Settings(BaseSettings):
             return v
         raise ValueError(v)
 
-    {% if cookiecutter.database == "Postgres" %}
+    {% if cookiecutter.database == "Postgres" -%}
     POSTGRES_SERVER: str
     POSTGRES_USER: str
     POSTGRES_PASSWORD: str
@@ -39,12 +40,11 @@ class Settings(BaseSettings):
             host=values.get("POSTGRES_SERVER"),
             path=f"/{values.get('POSTGRES_DB') or ''}",
         )
-    {% endif %}
+    {%- endif %}
 
     class Config:
         case_sensitive = True
         env_file = ".env"
-
 
 
 settings = Settings()
