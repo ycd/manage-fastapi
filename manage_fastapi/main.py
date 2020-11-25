@@ -16,7 +16,7 @@ app = typer.Typer(help="Managing FastAPI projects made easy!", name="Manage Fast
 @app.command(help="Creates a FastAPI project.")
 def startproject(
     name: str,
-    interact: bool = typer.Option(False, "--potato", is_flag=True),
+    interact: bool = typer.Option(False),
     database: Optional[Database] = typer.Option(None),
     docker: bool = typer.Option(False),
     license_: Optional[License] = typer.Option(None, "--license", case_sensitive=False),
