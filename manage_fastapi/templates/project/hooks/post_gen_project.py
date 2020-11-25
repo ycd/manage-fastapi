@@ -1,6 +1,6 @@
 import os
 
-from manage_fastapi.constants import Database, PackageManager
+from manage_fastapi.constants import PackageManager
 
 
 def remove_paths(paths: list):
@@ -41,18 +41,22 @@ def set_docker():
 
 def set_database():
     database = "{{ cookiecutter.database }}"
-    paths = []
+    if database == "None":
+        remove_paths(["app/database.py"])
 
-    if database == Database.NONE:
-        paths = ["app/database.py"]
 
-    remove_paths(paths)
+def set_license():
+    license_ = "{{ cookiecutter.license }}"
+    if license_ == "None":
+        remove_paths(["LICENSE"])
 
 
 def main():
+    set_database()
+    set_docker()
+    set_license()
     set_packaging()
     set_pre_commit()
-    set_docker()
 
 
 if __name__ == "__main__":

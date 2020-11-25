@@ -19,13 +19,13 @@ class Context(BaseModel):
     python: PythonVersion
     fastapi: str = FASTAPI_VERSION
 
-    license: License
+    license: Optional[License]
     year: int
 
     pre_commit: bool
     docker: bool
 
-    database: Database
+    database: Optional[Database]
 
     @root_validator(pre=True)
     def git_info(cls, values: dict):

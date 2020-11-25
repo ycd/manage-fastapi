@@ -1,6 +1,8 @@
 import os
 import subprocess
+from typing import Optional
 
+import pkg_resources
 import typer
 
 from manage_fastapi.constants import Database, License, PackageManager, PythonVersion
@@ -12,18 +14,17 @@ app = typer.Typer(help="Managing FastAPI projects made easy!", name="Manage Fast
 
 
 @app.command(help="Creates a FastAPI project.")
-def startproject(name: str, default: bool = typer.Option(False)):
-    if default:
-        context = Context(
-            name=name,
-            packaging=PackageManager.PIP,
-            python=PythonVersion.THREE_DOT_EIG,
-            license=License.MIT,
-            pre_commit=True,
-            docker=True,
-            database=Database.NONE,
-        )
-    else:
+def startproject(
+    name: str,
+    interact: bool = typer.Option(False, "--potato", is_flag=True),
+    database: Optional[Database] = typer.Option(None),
+    docker: bool = typer.Option(False),
+    license_: Optional[License] = typer.Option(None, "--license", case_sensitive=False),
+    packaging: PackageManager = typer.Option(PackageManager.PIP),
+    pre_commit: bool = typer.Option(False, "--pre-commit"),
+    python: PythonVersion = typer.Option(PythonVersion.THREE_DOT_EIG),
+):
+    if interact:
         result = launch_cli(
             ("packaging", bullet(PackageManager)),
             ("python", bullet(PythonVersion)),
@@ -33,6 +34,16 @@ def startproject(name: str, default: bool = typer.Option(False)):
             ("database", bullet(Database)),
         )
         context = Context(name=name, **result)
+    else:
+        context = Context(
+            name=name,
+            packaging=packaging,
+            python=python,
+            license=license_,
+            pre_commit=pre_commit,
+            docker=docker,
+            database=database,
+        )
     generate_project(context)
 
 
@@ -48,3 +59,23 @@ def run(prod: bool = typer.Option(False)):
         args.append("--reload")
     app_file = os.getenv("FASTAPI_APP", "app.main")
     subprocess.call(["uvicorn", f"{app_file}:app", *args])
+
+
+def version_callback(value: bool):
+    if value:
+        version = pkg_resources.get_distribution("manage-fastapi").version
+        typer.echo(f"manage-fastapi, version {version}")
+        raise typer.Exit()
+
+
+@app.callback()
+def main(
+    version: bool = typer.Option(
+        None,
+        "--version",
+        callback=version_callback,
+        is_eager=True,
+        help="Show the Manage FastAPI version information.",
+    )
+):
+    ...
