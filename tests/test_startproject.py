@@ -1,8 +1,9 @@
 from unittest.mock import patch
 
 import pytest
-from manage_fastapi.main import app
 from typer.testing import CliRunner
+
+from manage_fastapi.main import app
 
 runner = CliRunner()
 

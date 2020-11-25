@@ -6,9 +6,9 @@ import pkg_resources
 import typer
 
 from manage_fastapi.constants import Database, License, PackageManager, PythonVersion
-from manage_fastapi.generator import generate_project
+from manage_fastapi.context import AppContext, ProjectContext
+from manage_fastapi.generator import generate_app, generate_project
 from manage_fastapi.helpers import bullet, launch_cli, yes_no
-from manage_fastapi.schemas import Context
 
 app = typer.Typer(help="Managing FastAPI projects made easy!", name="Manage FastAPI")
 
@@ -33,9 +33,9 @@ def startproject(
             ("docker", yes_no("docker")),
             ("database", bullet(Database)),
         )
-        context = Context(name=name, **result)
+        context = ProjectContext(name=name, **result)
     else:
-        context = Context(
+        context = ProjectContext(
             name=name,
             packaging=packaging,
             python=python,
@@ -48,8 +48,9 @@ def startproject(
 
 
 @app.command(help="Creates a FastAPI component.")
-def startapp():
-    ...
+def startapp(name: str):
+    context = AppContext(name=name)
+    generate_app(context)
 
 
 @app.command(help="Run a FastAPI application.")
