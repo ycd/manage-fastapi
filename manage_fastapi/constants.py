@@ -2,9 +2,6 @@ from enum import Enum, EnumMeta
 
 
 class BaseMetadataEnum(EnumMeta):
-    def __iter__(self):
-        return (member[1].value for member in self.__members__.items())
-
     def __contains__(self, other):
         try:
             self(other)
@@ -31,11 +28,10 @@ class PythonVersion(BaseEnum):
 
 class License(BaseEnum):
     MIT = "MIT"
-    BSD = "BSD-3"
-    GNU = "GNU GPL v3.0"
-    APACHE = "Apache Software License 2.0"
+    BSD = "BSD"
+    GNU = "GNU"
+    APACHE = "Apache"
 
 
 class Database(BaseEnum):
     POSTGRES = "Postgres"
-    NONE = "None"
