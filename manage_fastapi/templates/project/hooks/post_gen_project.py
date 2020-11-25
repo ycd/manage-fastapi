@@ -47,6 +47,7 @@ def set_license():
         remove_paths(["LICENSE"])
 
 
+# TODO(Marcelo): Alter config.py location according to the project complexity.
 # def set_config_location():
 #     database = "{{ cookiecutter.database }}"
 #     if database == "None":
