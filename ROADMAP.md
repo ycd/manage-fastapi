@@ -18,6 +18,7 @@ The package plans are here. If you want to contribute with new ideas, or develop
 * [X] Support `startapp` command.
     - [X] Simple app creation.
     - [ ] Append the APIRouter to the FastAPI app.
+    - [ ] Add `--app-file` and `--app-variable` options on `startapp`.
 * [ ] Add tests.
 * [ ] Fix documentation accordingly.
 
