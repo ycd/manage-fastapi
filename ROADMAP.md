@@ -30,6 +30,10 @@ The package plans are here. If you want to contribute with new ideas, or develop
 * [ ] Add `logger` to `startproject` structure.
 * [ ] Base CRUD class to `startproject`.
 
+### Additional
+
+* [ ] Script to copy `index.md` to `README.md` and verify if they are the same.
+
 ## Questions
 
 * Should we support .git by default?
