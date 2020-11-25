@@ -17,14 +17,10 @@ def remove_paths(paths: list):
 
 def set_packaging():
     packaging = "{{ cookiecutter.packaging }}"
-    paths = []
-
     if packaging == PackageManager.PIP:
-        paths = ["poetry.lock", "pyproject.toml"]
+        remove_paths(["poetry.lock", "pyproject.toml"])
     elif packaging == PackageManager.POETRY:
-        paths = ["requirements.txt"]
-
-    remove_paths(paths)
+        remove_paths(["requirements.txt"])
 
 
 def set_pre_commit():
@@ -49,6 +45,14 @@ def set_license():
     license_ = "{{ cookiecutter.license }}"
     if license_ == "None":
         remove_paths(["LICENSE"])
+
+
+# def set_config_location():
+#     database = "{{ cookiecutter.database }}"
+#     if database == "None":
+#         remove_paths(["app/core/config.py"])
+#     else:
+#         remove_paths(["app/config.py"])
 
 
 def main():

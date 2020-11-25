@@ -8,7 +8,19 @@ from manage_fastapi.config import FASTAPI_VERSION
 from manage_fastapi.constants import Database, License, PackageManager, PythonVersion
 
 
-class Context(BaseModel):
+class AppContext(BaseModel):
+    name: str
+    folder_name: str
+    snake_name: str
+
+    @root_validator(pre=True)
+    def validate_app(cls, values: dict):
+        values["folder_name"] = values["name"].lower().replace(" ", "-").strip()
+        values["snake_name"] = values["folder_name"].replace("-", "_")
+        return values
+
+
+class ProjectContext(BaseModel):
     name: str
     folder_name: str
     packaging: PackageManager
@@ -28,7 +40,7 @@ class Context(BaseModel):
     database: Optional[Database]
 
     @root_validator(pre=True)
-    def git_info(cls, values: dict):
+    def validate_project(cls, values: dict):
         try:
             values["username"] = subprocess.check_output(
                 ["git", "config", "--get", "user.name"]

@@ -15,6 +15,9 @@ The package plans are here. If you want to contribute with new ideas, or develop
 * [X] Integrate databases on `startproject`.
     - [X] Postgres
 * [ ] Different Authentication support on `startproject`.
+* [X] Support `startapp` command.
+    - [X] Simple app creation.
+    - [ ] Append the APIRouter to the FastAPI app.
 * [ ] Add tests.
 * [ ] Fix documentation accordingly.
 

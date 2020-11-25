@@ -1,0 +1,5 @@
+{
+  "folder_name": "{{ cookiecutter.folder_name }}",
+  "name": "{{ cookiecutter.name }}",
+  "snake_name": "{{ cookiecutter.snake_name }}"
+}
