@@ -2,6 +2,10 @@
 
 ### Latest Changes
 
+### 1.0.0
+
+* Add back `run` command, previously known as `run-server`
+
 ### 0.1.60
 
 * Delete run-server command
@@ -9,16 +13,13 @@
 * Create new template for settings without database
 * Small fix for project utils
 
-
 ### 0.1.52
 
 * Temporary fix for Path issue when running with uvicorn
 
-
 ### 0.1.51
 
 * Little update on API template
-
 
 ### 0.1.5
 
@@ -27,23 +28,19 @@
 * Fix little bugs
 * Update docs
 
-
 ### 0.1.41
 
 * Quick fix for a little bug
-
 
 ### 0.1.4
 
 * Changed project architecture
 * Increased travis tests
 
-
 ### 0.1.3
 
 * Make database optional
 * Now Manage FastAPI has support for MongoDB, PostgreSQL, SQLite, MySQL, Tortoise ORM
-
 
 ### 0.1.2
 
