@@ -4,7 +4,9 @@
 
 ### 1.0.0
 
-* Add back `run` command, previously known as `run-server`
+* Add `run` command, previously known as `run-server`.
+* Create a roadmap.
+* Massive design update on the package logic. File template (cookiecutter) base instead of variable.
 
 ### 0.1.60
 
