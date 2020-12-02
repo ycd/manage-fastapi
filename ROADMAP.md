@@ -13,14 +13,27 @@ The package plans are here. If you want to contribute with new ideas, or develop
 * [X] Add basic linter tools on `startproject` (flake8, mypy and isort).
 * [X] Add `.pre-commit-config.yaml` on `startproject`.
 * [X] Integrate databases on `startproject`.
-    - [X] Postgres
+    - [ ] SQLALchemy
+        - [X] PostgreSQL
+        - [ ] MySQL
+        - [ ] SQLite
+    - [ ] Async SQLAlchemy
+        - [ ] PostgreSQL
+        - [ ] MySQL
+        - [ ] SQLite
+    - [ ] Gino (only supports PostgreSQL)
+    - [ ] Tortoise
+        - [ ] PostgreSQL
+        - [ ] MySQL
+        - [ ] SQLite
+    - [ ] MongoDB
 * [ ] Different Authentication support on `startproject`.
 * [X] Support `startapp` command.
     - [X] Simple app creation.
     - [ ] Append the APIRouter to the FastAPI app.
     - [ ] Add `--app-file` and `--app-variable` options on `startapp`.
 * [ ] Add tests.
-* [ ] Fix documentation accordingly.
+* [X] Fix documentation accordingly.
 
 ### Nice to have
 
