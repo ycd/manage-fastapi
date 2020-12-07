@@ -40,7 +40,7 @@ def test_startproject(
             }
 
         mock_obj.side_effect = side_effect
-        result = runner.invoke(app, ["startproject", project_name, "--interact"])
+        result = runner.invoke(app, ["startproject", project_name, "--interactive"])
         assert mock_obj.assert_called_once
         assert result.output == CREATED_SUCCESSFULLY
         assert result.exit_code == 0
