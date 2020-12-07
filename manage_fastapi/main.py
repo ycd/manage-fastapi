@@ -10,7 +10,11 @@ from manage_fastapi.context import AppContext, ProjectContext
 from manage_fastapi.generator import generate_app, generate_project
 from manage_fastapi.helpers import bullet, launch_cli, yes_no
 
-app = typer.Typer(help="Managing FastAPI projects made easy!", name="Manage FastAPI")
+app = typer.Typer(
+    add_completion=False,
+    help="Managing FastAPI projects made easy!",
+    name="Manage FastAPI",
+)
 
 
 @app.command(help="Creates a FastAPI project.")
