@@ -36,7 +36,7 @@
 * #### Optional pre-commit hook generation.
 
 
-## Installation
+## Installation 📌
 
 * Prerequisites
     * Python 3.6 +
@@ -48,7 +48,7 @@ pip install manage-fastapi
 ```
 
 
-## Getting started
+## Getting started 🎈
 
 Easiest way to start is using the defaults:
 
@@ -64,15 +64,21 @@ fastapi startproject [name] --interactive
 
 
 
-## Command line options
+## Command line options 🧰
 
-Manage FastAPI has three commands for now. You can list them by running `fastapi --help`:
+Manage FastAPI provides three different commands. 
 
-<img src="docs/docs_assets/fastapi-help.png" width=700>
+You can list them with
+
+```bash
+fastapi --help
+```
+
+<img src="docs/docs_assets/fastapi-help.png" width=600>
 
 The idea is to have a highly customizable CLI, but at the same time a simple interface for new users. You can see the available options for `startproject` running `fastapi startproject --help`:
 
-<img src="docs/docs_assets/startproject-help.png" width=700>
+<img src="docs/docs_assets/startproject-help.png" width=600>
 
 The other commands are already available but the current implementation is too shallow. More details about `startapp` and `run` commands will be provided once they have more functionalities, at the moment you can run `startapp` by just:
 
