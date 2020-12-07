@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "manage-fastapi"
-version = "0.2.0"
+version = "1.0.0"
 description = "Managing FastAPI projects made easy."
 authors = [
     "ycd <yagizcanilbey1903@gmail.com>",
