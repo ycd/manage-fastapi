@@ -20,7 +20,7 @@ app = typer.Typer(
 @app.command(help="Creates a FastAPI project.")
 def startproject(
     name: str,
-    interact: bool = typer.Option(False),
+    interactive: bool = typer.Option(False, help="Run in interactive mode."),
     database: Optional[Database] = typer.Option(None, case_sensitive=False),
     docker: bool = typer.Option(False),
     license_: Optional[License] = typer.Option(None, "--license", case_sensitive=False),
@@ -28,7 +28,7 @@ def startproject(
     pre_commit: bool = typer.Option(False, "--pre-commit"),
     python: PythonVersion = typer.Option(PythonVersion.THREE_DOT_EIG),
 ):
-    if interact:
+    if interactive:
         result = launch_cli(
             ("packaging", bullet(PackageManager)),
             ("python", bullet(PythonVersion)),
