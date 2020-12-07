@@ -17,6 +17,7 @@
 
 
 
+
 ---
 
 **Documentation**: View it on [website](https://ycd.github.io/manage-fastapi/)
@@ -26,29 +27,45 @@
 
 ---
 
+<a href="https://asciinema.org/a/377829" target="_blank"><img src="https://asciinema.org/a/377829.svg" /></a>
+
 ##  Features 🚀
 
 * #### Creates customizable **project boilerplate.**
 * #### Creates customizable **app boilerplate.**
 * #### Handles the project structuring for you.
+* #### Optional Dockerfile generation.
+* #### Optional docker-compose generation for your project needs.
+* #### Optional pre-commit hook generation.
+
 
 ## Installation
 
-Manage FastAPI can be installed by running `pip install manage-fastapi`. It requires Python 3.6+ to run.
+* Prerequisites
+    * Python 3.6 +
+
+Manage FastAPI can be installed by running 
+
+```python
+pip install manage-fastapi 
+```
+
 
 ## Usage
 
 To get started right away with sensible defaults:
 
 ```bash
-fastapi startproject {name}
+fastapi startproject [name]
 ```
 
-You can run _Manage FastAPI_ as a package if running it as a script doesn’t work:
+You can also use **interactive** mode!
 
 ```bash
-python -m fastapi startproject {name}
+fastapi startproject [name] --interactive
 ```
+
+
 
 ## Command line options
 
