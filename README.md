@@ -1,5 +1,5 @@
 <h3 align="center">
-    <strong>Manage FastAPI projects easily</strong>
+    <strong>Project generator and manager for FastAPI.</strong>
 </h3>
 <p align="center">
     <a href="https://github.com/ycd/manage-fastapi" target="_blank">
@@ -48,15 +48,15 @@ pip install manage-fastapi
 ```
 
 
-## Usage
+## Getting started
 
-To get started right away with sensible defaults:
+Easiest way to start is using the defaults:
 
 ```bash
 fastapi startproject [name]
 ```
 
-You can also use **interactive** mode!
+But there is an **interactive** mode!
 
 ```bash
 fastapi startproject [name] --interactive
