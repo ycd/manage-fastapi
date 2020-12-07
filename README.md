@@ -20,10 +20,7 @@
 
 ---
 
-**Documentation**: View it on [website](https://ycd.github.io/manage-fastapi/)
-
 **Source Code**: View it on [Github](https://github.com/ycd/manage-fastapi/)
-
 
 ---
 
