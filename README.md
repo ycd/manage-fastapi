@@ -1,6 +1,11 @@
-<h3 align="center">
-    <strong>Project generator and manager for FastAPI.</strong>
-</h3>
+<div align="center">
+<h1>manage-fastapi</h1>
+
+[manage-fastapi](https://github.com/ycd/manage-fastapi) Project generator and manager for FastAPI
+
+
+![manage_fastapi](assets/manage_fastapi.gif)
+
 <p align="center">
     <a href="https://github.com/ycd/manage-fastapi" target="_blank">
         <img src="https://img.shields.io/github/last-commit/ycd/manage-fastapi?style=for-the-badge" alt="Latest Commit">
@@ -14,8 +19,7 @@
     <img src="https://img.shields.io/pypi/pyversions/manage-fastapi?style=for-the-badge">
     <img src="https://img.shields.io/github/license/ycd/manage-fastapi?style=for-the-badge">
 </p>
-
-
+</div>
 
 
 ---
