@@ -2,7 +2,10 @@
 from typing import Any, Dict, List, Optional, Union
 
 from pydantic import AnyHttpUrl, BaseSettings, PostgresDsn, validator
+{% elif cookiecutter.database == "MySQL" %}
+from typing import Any, Dict, List, Optional, Union
 
+from pydantic import AnyHttpUrl, BaseSettings, validator
 {% else %}
 from typing import List, Union
 
@@ -40,6 +43,20 @@ class Settings(BaseSettings):
             host=values.get("POSTGRES_SERVER"),
             path=f"/{values.get('POSTGRES_DB') or ''}",
         )
+    {% elif cookiecutter.database == "MySQL" -%}
+    MYSQL_USER: str
+    MYSQL_PASSWORD: str
+    MYSQL_HOST: str
+    MYSQL_PORT: str
+    MYSQL_DATABASE: str
+    DATABASE_URI: Optional[str] = None
+
+    @validator("DATABASE_URI", pre=True)
+    def assemble_db_connection(cls, v: Optional[str], values: Dict[str, Any]) -> Any:
+        if isinstance(v, str):
+            return v
+        return f"mysql://{values.get('MYSQL_USER')}:{values.get('MYSQL_PASSWORD')}@{values.get('MYSQL_HOST')}:" \
+               f"{values.get('MYSQL_PORT')}/{values.get('MYSQL_DATABASE')}"
     {%- endif %}
 
     class Config:

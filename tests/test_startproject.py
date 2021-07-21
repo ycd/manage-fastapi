@@ -16,7 +16,7 @@ ALREADY_EXISTS = "Folder 'potato' already exists. 😞\n"
 @pytest.mark.parametrize("license_", ["MIT", "BSD", "GNU", "Apache"])
 @pytest.mark.parametrize("pre_commit", [True, False])
 @pytest.mark.parametrize("docker", [True, False])
-@pytest.mark.parametrize("database", ["Postgres"])
+@pytest.mark.parametrize("database", ["Postgres", "MySQL"])
 def test_startproject(
     project_name: str,
     packaging: str,
