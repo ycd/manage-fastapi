@@ -6,4 +6,11 @@ POSTGRES_USER=postgres
 POSTGRES_PASSWORD=postgres
 POSTGRES_SERVER=database
 POSTGRES_DB=app
+{% elif cookiecutter.database == "MySQL" %}
+MYSQL_ROOT_PASSWORD=development
+MYSQL_USER=user
+MYSQL_PASSWORD=password
+MYSQL_HOST=database
+MYSQL_PORT=3306
+MYSQL_DATABASE=app
 {% endif %}
