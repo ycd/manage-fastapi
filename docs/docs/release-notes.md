@@ -2,6 +2,10 @@
 
 ### Latest Changes
 
+### 1.0.1
+
+* Added MySQL support.
+
 ### 1.0.0
 
 * Add `run` command, previously known as `run-server`.
