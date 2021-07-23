@@ -7,4 +7,4 @@ try:
 
     FASTAPI_VERSION = fastapi.__version__
 except ModuleNotFoundError:
-    FASTAPI_VERSION = "0.61.2"
+    FASTAPI_VERSION = "0.67.0"
