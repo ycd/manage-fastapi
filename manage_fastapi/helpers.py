@@ -1,5 +1,5 @@
 import re
-from typing import Any, Dict, TypeVar, cast
+from typing import TypeVar
 
 import questionary
 
@@ -17,11 +17,3 @@ def question(choices: EnumType) -> questionary.Question:
 
 def binary_question(option: str) -> questionary.Question:
     return questionary.confirm(f"Do you want {option}?", default=False)
-
-
-def launch_cli(**kwargs: Any) -> Dict[str, Any]:
-    result = {}
-    for name, question in kwargs.items():
-        question = cast(questionary.Question, question)
-        result[name] = question.ask()
-    return result
