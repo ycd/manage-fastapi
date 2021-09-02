@@ -1,6 +1,7 @@
 name: Automerge
 on: [push, pull_request]
 
+
 jobs:
   automerge:
     runs-on: ubuntu-latest
