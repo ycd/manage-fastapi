@@ -1,8 +1,5 @@
 name: Automerge
-on:
-  pull_request:
-    branches:
-      - "dependabot/**"
+on: [push, pull_request]
 
 jobs:
   automerge:
