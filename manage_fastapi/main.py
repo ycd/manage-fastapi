@@ -4,11 +4,12 @@ from typing import Optional
 
 import pkg_resources
 import typer
+from questionary.form import form
 
 from manage_fastapi.constants import Database, License, PackageManager, PythonVersion
 from manage_fastapi.context import AppContext, ProjectContext
 from manage_fastapi.generator import generate_app, generate_project
-from manage_fastapi.helpers import bullet, launch_cli, yes_no
+from manage_fastapi.helpers import binary_question, question
 
 app = typer.Typer(
     add_completion=False,
@@ -29,13 +30,13 @@ def startproject(
     python: PythonVersion = typer.Option(PythonVersion.THREE_DOT_EIG),
 ):
     if interactive:
-        result = launch_cli(
-            ("packaging", bullet(PackageManager)),
-            ("python", bullet(PythonVersion)),
-            ("license", bullet(License)),
-            ("pre_commit", yes_no("pre commit")),
-            ("docker", yes_no("docker")),
-            ("database", bullet(Database)),
+        result = form(
+            packaging=question(PackageManager),
+            python=question(PythonVersion),
+            license=question(License),
+            pre_commit=binary_question("pre commit"),
+            docker=binary_question("docker"),
+            database=question(Database),
         )
         context = ProjectContext(name=name, **result)
     else:
