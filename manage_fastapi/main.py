@@ -38,7 +38,6 @@ def startproject(
             docker=binary_question("docker"),
             database=question(Database),
         )
-        print(result)
         context = ProjectContext(name=name, **result)
     else:
         context = ProjectContext(
