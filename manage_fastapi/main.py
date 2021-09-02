@@ -37,7 +37,7 @@ def startproject(
             pre_commit=binary_question("pre commit"),
             docker=binary_question("docker"),
             database=question(Database),
-        )
+        ).ask()
         context = ProjectContext(name=name, **result)
     else:
         context = ProjectContext(
