@@ -9,7 +9,7 @@ license = "MIT"
 name = "manage-fastapi"
 readme = "README.md"
 repository = "https://github.com/ycd/manage-fastapi"
-version = "1.1.0"
+version = "1.1.1"
 
 classifiers = [
   "Topic :: Software Development :: Build Tools",
@@ -28,10 +28,10 @@ classifiers = [
 
 [tool.poetry.dependencies]
 cookiecutter = "^1.7.2"
-pydantic = { extras = ["email"], version = "^1.7.2" }
+pydantic = {extras = ["email"], version = "^1.7.2"}
 python = "^3.6.1"
-typer = "^0.4.0"
 questionary = "^1.10.0"
+typer = "^0.4.0"
 
 [tool.poetry.dev-dependencies]
 autoflake = "^1.4"
