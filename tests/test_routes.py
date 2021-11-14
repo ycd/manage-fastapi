@@ -2,10 +2,8 @@ import os
 import sys
 import textwrap
 from pathlib import Path
-from unittest.mock import patch
 
 import pytest
-from rich.console import Console
 from typer.testing import CliRunner
 
 from manage_fastapi.main import app
@@ -13,6 +11,7 @@ from manage_fastapi.main import app
 runner = CliRunner()
 
 
+@pytest.skipif(sys.platform == "win32")
 def test_routes_invalid_format(tmp_path: Path):
     with runner.isolated_filesystem(temp_dir=tmp_path):
         result = runner.invoke(app, ["routes", str(tmp_path)])
