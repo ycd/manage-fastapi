@@ -29,7 +29,7 @@ classifiers = [
 [tool.poetry.dependencies]
 cookiecutter = "^1.7.2"
 pydantic = { extras = ["email"], version = "^1.7.2" }
-python = "^3.6.1"
+python = "^3.6.2"
 questionary = "^1.10.0"
 typer = "^0.4.0"
 
@@ -43,6 +43,7 @@ pre-commit = "^2.8.2"
 pytest = "^5.2"
 pytest-cov = "^2.10.1"
 rich = { version = "10.11.0", python = ">=3.6.2,<4.0.0" }
+fastapi = { version = "0.70.0", python = ">=3.6.2,<4.0.0" }
 
 [tool.poetry.scripts]
 fastapi = 'manage_fastapi.main:app'
