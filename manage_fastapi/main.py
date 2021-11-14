@@ -9,7 +9,7 @@ from questionary.form import form
 from manage_fastapi.constants import Database, License, PackageManager, PythonVersion
 from manage_fastapi.context import AppContext, ProjectContext
 from manage_fastapi.generator import generate_app, generate_project
-from manage_fastapi.helpers import binary_question, question
+from manage_fastapi.helpers import binary_question, import_from_string, question
 
 app = typer.Typer(
     add_completion=False,
@@ -67,8 +67,35 @@ def run(prod: bool = typer.Option(False)):
     subprocess.call(["uvicorn", f"{app_file}:app", *args])
 
 
+@app.command(help="Show list of endpoints.")
+def routes(dotted_path: str):
+    try:
+        from rich.console import Console
+        from rich.table import Table
+    except ModuleNotFoundError:  # pragma: no cover
+        typer.echo("rich is not installed. Install it with `pip install rich`.")
+        raise typer.Exit()
+
+    app = import_from_string(dotted_path)
+    headers = ("name", "path", "methods")
+    routes = sorted(
+        [
+            tuple(str(getattr(route, header)) for header in headers)
+            for route in app.routes
+        ],
+        key=lambda x: x[1],
+    )
+    console = Console()
+    table = Table(show_header=True, header_style="bold magenta")
+    for column in headers:
+        table.add_column(column)
+    for route in routes:
+        table.add_row(*route)
+    console.print(table)
+
+
 def version_callback(value: bool):
-    if value:
+    if value:  # pragma: no cover
         version = pkg_resources.get_distribution("manage-fastapi").version
         typer.echo(f"manage-fastapi, version {version}")
         raise typer.Exit()
