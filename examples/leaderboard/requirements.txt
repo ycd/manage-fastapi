@@ -1,0 +1,4 @@
+fastapi==0.68.0
+uvicorn==0.12.2
+databases[mysql]==0.5.3
+cryptography

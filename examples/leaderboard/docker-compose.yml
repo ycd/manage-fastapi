@@ -1,0 +1,44 @@
+version: "3.9"
+services:
+  web:
+    image: leaderboard:latest
+    restart: always
+    command: uvicorn app.app.main:app --host 0.0.0.0 --port 8000
+    volumes:
+      - .:/app/
+    networks:
+      - backend
+    depends_on:
+      - mysql
+    environment:
+      - PROJECT_NAME=leaderboard
+      - BACKEND_CORS_ORIGINS=["http://localhost:8000","https://localhost:8000","http://localhost","https://localhost"]
+      - MYSQL_ROOT_PASSWORD=super_secret_password
+      - MYSQL_DATABASE=leaderboard
+      - MYSQL_USER=yagu
+      - MYSQL_PASSWORD=super_secret_password
+      - MYSQL_PORT=3306
+      - MYSQL_HOST=mysql
+    ports:
+      - "8000:8000"
+
+  mysql:
+    image: mysql
+    restart: always
+    networks:
+      - backend
+    environment:
+      MYSQL_ROOT_PASSWORD: super_secret_password
+      MYSQL_DATABASE: leaderboard
+      MYSQL_USER: yagu
+      MYSQL_PASSWORD: super_secret_password
+    healthcheck:
+      test: [ "CMD", "mysqladmin", "ping", "-h", "localhost" ]
+      timeout: 5s
+      retries: 20
+    ports:
+      - "3306:3306"
+
+networks:
+  backend:
+    driver: bridge
