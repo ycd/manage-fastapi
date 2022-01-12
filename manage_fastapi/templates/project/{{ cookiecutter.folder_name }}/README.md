@@ -1,6 +1,6 @@
 # {{ cookiecutter.name }}
 
-This project was generated via [manage-fastapi](https://ycd.github.io/manage-fastapi/)! :tada:
+This project was generated via [manage-fastapi](https://github.com/ycd/manage-fastapi)! :tada:
 
 ## License
 
