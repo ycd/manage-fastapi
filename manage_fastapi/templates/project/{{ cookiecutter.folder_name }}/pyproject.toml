@@ -7,6 +7,8 @@ description = ""
 [tool.poetry.dependencies]
 python = "^{{ cookiecutter.python }}"
 fastapi = "^{{ cookiecutter.fastapi }}"
+dynaconf = {extras = ["vault", "redis"], version = "^{{ cookiecutter.dynaconf }}"}
+loguru = "^{{ cookiecutter.loguru }}"
 
 [tool.poetry.dev-dependencies]
 pytest = "^5.2"
