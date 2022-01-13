@@ -1,2 +1,4 @@
 fastapi=={{ cookiecutter.fastapi }}
+loguru=={{ cookiecutter.loguru }}
+dynaconf=={{ cookiecutter.dynaconf }}
 uvicorn==0.12.2

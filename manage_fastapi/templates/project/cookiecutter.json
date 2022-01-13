@@ -1,5 +1,7 @@
 {
   "database": "{{ cookiecutter.database }}",
+  "dynaconf": "{{ cookiecutter.dynaconf }}",
+  "loguru": "{{ cookiecutter.loguru }}",
   "docker": "{{ cookiecutter.docker }}",
   "email": "{{ cookiecutter.email }}",
   "env": ".env",

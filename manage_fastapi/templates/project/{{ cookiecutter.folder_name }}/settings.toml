@@ -1,0 +1,28 @@
+[default]
+name = ""
+scheme = "sqlite"
+host = ""
+port = 80
+database = ":memory:"
+user= ""
+password=""
+
+
+[development]
+name = "developer"
+scheme = "sqlite"
+host = ""
+port = 80
+database = ":memory:"
+user= ""
+password=""
+
+[production]
+
+name = "admin"
+scheme = "postgresql"
+user='postgres'
+password='postgres'
+server='localhost'
+database='app'
+port=5432

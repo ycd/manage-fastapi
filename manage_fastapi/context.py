@@ -4,7 +4,7 @@ from typing import Optional
 
 from pydantic import BaseModel, EmailStr, root_validator
 
-from manage_fastapi.config import FASTAPI_VERSION
+from manage_fastapi.config import DYNACONF_VERSION, FASTAPI_VERSION, LOGURU_VERSION
 from manage_fastapi.constants import Database, License, PackageManager, PythonVersion
 
 
@@ -30,6 +30,8 @@ class ProjectContext(BaseModel):
 
     python: PythonVersion
     fastapi: str = FASTAPI_VERSION
+    dynaconf: str = DYNACONF_VERSION
+    loguru: str = LOGURU_VERSION
 
     license: Optional[License]
     year: int
