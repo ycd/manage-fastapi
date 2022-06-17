@@ -59,10 +59,15 @@ def startapp(name: str):
 
 
 @app.command(help="Run a FastAPI application.")
-def run(prod: bool = typer.Option(False)):
+def run(
+    prod: bool = typer.Option(False),
+    port: Optional[int] = typer.Option(None, "--port")
+):
     args = []
     if not prod:
         args.append("--reload")
+    if port:
+        args.append(f"--port={port}")
     app_file = os.getenv("FASTAPI_APP", "app.main")
     subprocess.call(["uvicorn", f"{app_file}:app", *args])
 
