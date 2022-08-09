@@ -31,7 +31,7 @@ cookiecutter = "^1.7.2"
 pydantic = {extras = ["email"], version = "^1.7.2"}
 python = "^3.6.1"
 questionary = "^1.10.0"
-typer = "^0.4.0"
+typer = ">=0.4,<0.7"
 
 [tool.poetry.dev-dependencies]
 autoflake = "^1.4"
