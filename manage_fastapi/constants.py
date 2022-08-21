@@ -25,6 +25,7 @@ class PythonVersion(BaseEnum):
     THREE_DOT_SEV = "3.7"
     THREE_DOT_EIG = "3.8"
     THREE_DOT_NIN = "3.9"
+    THREE_DOT_TEN = "3.10"
 
 
 class License(BaseEnum):
