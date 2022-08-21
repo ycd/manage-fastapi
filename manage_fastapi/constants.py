@@ -27,6 +27,7 @@ class PythonVersion(BaseEnum):
     THREE_DOT_NIN = "3.9"
     THREE_DOT_TEN = "3.10"
 
+
 class License(BaseEnum):
     MIT = "MIT"
     BSD = "BSD"
