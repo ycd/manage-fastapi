@@ -1,4 +1,4 @@
-name: Test
+name: CI
 
 on:
   push:
@@ -29,3 +29,14 @@ jobs:
         run: poetry run pytest tests/ --cov=manage_fastapi --cov-report=term-missing:skip-covered --cov-report=xml
       - name: Upload coverage
         uses: codecov/codecov-action@v1
+
+  automerge:
+    needs: test
+    runs-on: ubuntu-latest
+    permissions:
+      pull-requests: write
+      contents: write
+    steps:
+      - uses: fastify/github-action-merge-dependabot@v3.0.0
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
