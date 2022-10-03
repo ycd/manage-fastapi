@@ -12,7 +12,7 @@ def camel_to_snake(text: str) -> str:
 
 def question(choices: EnumType) -> questionary.Question:
     prompt = camel_to_snake(choices.__name__).replace("_", " ")  # type: ignore
-    return questionary.select(f"Select the {prompt}: ", choices=list(choices))
+    return questionary.select(f"Select the {prompt}: ", choices=[choices])
 
 
 def binary_question(option: str) -> questionary.Question:

@@ -44,10 +44,10 @@
 * Prerequisites
     * Python 3.6 +
 
-Manage FastAPI can be installed by running 
+Manage FastAPI can be installed by running
 
 ```python
-pip install manage-fastapi 
+pip install manage-fastapi
 ```
 
 
@@ -69,7 +69,7 @@ fastapi startproject [name] --interactive
 
 ## Command line options 🧰
 
-Manage FastAPI provides three different commands. 
+Manage FastAPI provides three different commands.
 
 You can list them with
 
