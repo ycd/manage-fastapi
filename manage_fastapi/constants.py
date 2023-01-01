@@ -21,7 +21,6 @@ class PackageManager(BaseEnum):
 
 
 class PythonVersion(BaseEnum):
-    THREE_DOT_SIX = "3.6"
     THREE_DOT_SEV = "3.7"
     THREE_DOT_EIG = "3.8"
     THREE_DOT_NIN = "3.9"
