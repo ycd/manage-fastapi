@@ -34,7 +34,7 @@
 
 ## Installation
 
-Manage FastAPI can be installed by running `pip install manage-fastapi`. It requires Python 3.6+ to run.
+Manage FastAPI can be installed by running `pip install manage-fastapi`. It requires Python 3.7+ to run.
 
 ## Usage
 
