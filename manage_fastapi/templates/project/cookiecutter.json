@@ -5,6 +5,7 @@
   "env": ".env",
   "fastapi": "{{ cookiecutter.fastapi }}",
   "folder_name": "{{ cookiecutter.folder_name }}",
+  "snake_name": "{{ cookiecutter.snake_name }}",
   "gitignore": ".gitignore",
   "license": "{{ cookiecutter.license }}",
   "name": "{{ cookiecutter.name }}",

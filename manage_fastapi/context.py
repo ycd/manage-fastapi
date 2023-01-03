@@ -23,6 +23,7 @@ class AppContext(BaseModel):
 class ProjectContext(BaseModel):
     name: str
     folder_name: str
+    snake_name: str
     packaging: PackageManager
 
     username: Optional[str] = None
@@ -51,6 +52,7 @@ class ProjectContext(BaseModel):
         except subprocess.CalledProcessError:
             ...
         values["folder_name"] = values["name"].lower().replace(" ", "-").strip()
+        values["snake_name"] = values["folder_name"].replace("-", "_")
         values["year"] = datetime.today().year
         return values
 
