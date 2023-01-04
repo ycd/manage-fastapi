@@ -19,7 +19,7 @@ services:
     image: postgres:12
     container_name: {{ cookiecutter.snake_name }}_database
     volumes:
-      - {{ cookiecutter.snake_name }}_local_postgres_data:/var/lib/postgresql/data:Z
+      - {{ cookiecutter.snake_name }}_database_data:/var/lib/postgresql/data:Z
     env_file:
       - .env
     ports:
@@ -29,7 +29,7 @@ services:
     image: mysql:5.7
     container_name: { { cookiecutter.snake_name } }_database
     volumes:
-      - {{ cookiecutter.snake_name }}_local_mysql_data:/var/lib/mysql:Z
+      - {{ cookiecutter.snake_name }}_database_data:/var/lib/mysql:Z
     env_file:
       - .env
     ports:
