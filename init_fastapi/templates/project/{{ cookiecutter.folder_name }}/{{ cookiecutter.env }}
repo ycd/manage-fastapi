@@ -1,0 +1,2 @@
+PROJECT_NAME={{ cookiecutter.name }}
+BACKEND_CORS_ORIGINS=["http://localhost:8000", "https://localhost:8000", "http://localhost", "https://localhost"]

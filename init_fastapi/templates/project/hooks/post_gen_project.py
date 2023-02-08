@@ -1,6 +1,6 @@
 import os
 
-from manage_fastapi.constants import PackageManager
+from init_fastapi.constants import PackageManager
 
 
 def remove_paths(paths: list):

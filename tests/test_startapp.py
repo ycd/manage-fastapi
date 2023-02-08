@@ -2,7 +2,7 @@ from pathlib import Path
 
 from typer.testing import CliRunner
 
-from manage_fastapi.main import app
+from init_fastapi.main import app
 
 runner = CliRunner()
 

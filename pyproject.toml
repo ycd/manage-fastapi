@@ -5,10 +5,9 @@ build-backend = "hatchling.build"
 [project]
 name = "manage-fastapi"
 description = "Managing FastAPI projects made easy."
-version = "1.1.1"
+version = "1.0.0"
 authors = [
-  { name = "Yagiz Degirmenci", email = "yagizcanilbey1903@gmail.com" },
-  { name = "Marcelo Trylesinski", email = "marcelotryle@gmail.com" },
+  { name = "Tony", email = "toantranct94@gmail.com" },
 ]
 license = "MIT"
 readme = "README.md"
@@ -35,9 +34,9 @@ dependencies = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/ycd/manage-fastapi"
-Documentation = "https://github.com/ycd/manage-fastapi"
-Source = "https://github.com/ycd/manage-fastapi"
+Homepage = "https://github.com/toantranct94/init-fastapi"
+Documentation = "https://github.com/toantranct94/init-fastapi"
+Source = "https://github.com/toantranct94/init-fastapi"
 
 [project.scripts]
-fastapi = 'manage_fastapi.main:app'
+fastapi = 'init_fastapi.main:app'

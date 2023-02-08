@@ -4,7 +4,7 @@
 [manage-fastapi](https://github.com/ycd/manage-fastapi) Project generator and manager for FastAPI
 
 
-![manage_fastapi](assets/readme.gif)
+![init_fastapi](assets/readme.gif)
 
 <p align="center">
     <a href="https://github.com/ycd/manage-fastapi" target="_blank">

@@ -4,20 +4,8 @@ from typing import Optional
 
 from pydantic import BaseModel, EmailStr, root_validator
 
-from manage_fastapi.config import FASTAPI_VERSION
-from manage_fastapi.constants import Database, License, PackageManager, PythonVersion
-
-
-class AppContext(BaseModel):
-    name: str
-    folder_name: str
-    snake_name: str
-
-    @root_validator(pre=True)
-    def validate_app(cls, values: dict):
-        values["folder_name"] = values["name"].lower().replace(" ", "-").strip()
-        values["snake_name"] = values["folder_name"].replace("-", "_")
-        return values
+from init_fastapi.config import FASTAPI_VERSION
+from init_fastapi.constants import Database, License, PackageManager, PythonVersion
 
 
 class ProjectContext(BaseModel):
