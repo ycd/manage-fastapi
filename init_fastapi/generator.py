@@ -7,7 +7,7 @@ from cookiecutter.main import cookiecutter
 from pydantic.main import BaseModel
 
 from init_fastapi.config import TEMPLATES_DIR
-from init_fastapi.context import AppContext, ProjectContext
+from init_fastapi.context import ProjectContext
 
 ContextType = TypeVar("ContextType", bound=BaseModel)
 
