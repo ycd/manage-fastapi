@@ -1,6 +1,6 @@
 -e .
 
-autoflake==1.4
+autoflake==2.2.0
 black==23.3.0
 flake8==3.9.2
 isort==5.10.0
