@@ -1,8 +1,14 @@
 version: "3.8"
 
+{% if cookiecutter.database == "Postgres" or cookiecutter.database == "MySQL"  %}
+volumes:
+  {{ cookiecutter.snake_name }}_database_data: {}
+{% endif %}
+
 services:
   app:
     build: .
+    container_name: {{ cookiecutter.snake_name }}_app
     env_file:
       - .env
     ports:
@@ -11,6 +17,9 @@ services:
 {% if cookiecutter.database == "Postgres" %}
   database:
     image: postgres:12
+    container_name: {{ cookiecutter.snake_name }}_database
+    volumes:
+      - {{ cookiecutter.snake_name }}_database_data:/var/lib/postgresql/data:Z
     env_file:
       - .env
     ports:
@@ -18,6 +27,9 @@ services:
 {% elif cookiecutter.database == "MySQL" %}
   database:
     image: mysql:5.7
+    container_name: { { cookiecutter.snake_name } }_database
+    volumes:
+      - {{ cookiecutter.snake_name }}_database_data:/var/lib/mysql:Z
     env_file:
       - .env
     ports:
