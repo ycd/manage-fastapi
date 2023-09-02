@@ -92,3 +92,6 @@ dmypy.json
 
 # Temporary Files
 tmp
+
+# pyenv
+.python-version
