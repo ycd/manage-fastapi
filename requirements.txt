@@ -1,7 +1,7 @@
 -e .
 
 autoflake==1.4
-black==23.3.0
+black==23.9.1
 flake8==3.9.2
 isort==5.10.0
 mypy==1.4.1
