@@ -25,6 +25,8 @@ class ProjectContext(BaseModel):
     folder_name: str
     packaging: PackageManager
 
+    output_dir: str
+
     username: Optional[str] = None
     email: Optional[EmailStr] = None
 
@@ -42,12 +44,8 @@ class ProjectContext(BaseModel):
     @root_validator(pre=True)
     def validate_project(cls, values: dict):
         try:
-            values["username"] = subprocess.check_output(
-                ["git", "config", "--get", "user.name"]
-            )
-            values["email"] = subprocess.check_output(
-                ["git", "config", "--get", "user.email"]
-            )
+            values["username"] = subprocess.check_output(["git", "config", "--get", "user.name"])
+            values["email"] = subprocess.check_output(["git", "config", "--get", "user.email"])
         except subprocess.CalledProcessError:
             ...
         values["folder_name"] = values["name"].lower().replace(" ", "-").strip()

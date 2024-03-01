@@ -21,6 +21,7 @@ app = typer.Typer(
 @app.command(help="Creates a FastAPI project.")
 def startproject(
     name: str,
+    output_dir: Optional[str] = typer.Argument(default="."),
     interactive: bool = typer.Option(False, help="Run in interactive mode."),
     database: Optional[Database] = typer.Option(None, case_sensitive=False),
     docker: bool = typer.Option(False),
@@ -42,6 +43,7 @@ def startproject(
     else:
         context = ProjectContext(
             name=name,
+            output_dir=output_dir,
             packaging=packaging,
             python=python,
             license=license_,
@@ -83,5 +85,4 @@ def main(
         is_eager=True,
         help="Show the Manage FastAPI version information.",
     )
-):
-    ...
+): ...

@@ -14,10 +14,12 @@ ContextType = TypeVar("ContextType", bound=BaseModel)
 
 def fill_template(template_name: str, context: ContextType):
     try:
+        output_dir = context.output_dir
         cookiecutter(
             os.path.join(TEMPLATES_DIR, template_name),
-            extra_context=context.dict(),
+            extra_context=context.dict(exclude={"output_dir"}),
             no_input=True,
+            output_dir=output_dir,
         )
     except OutputDirExistsException:
         typer.echo(f"Folder '{context.folder_name}' already exists. 😞")
