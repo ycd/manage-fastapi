@@ -26,3 +26,10 @@ def test_startproject_already_exists(tmp_path: Path):
         result = runner.invoke(app, ["startproject", "potato"])
         assert result.output == ALREADY_EXISTS
         assert result.exit_code == 0
+
+
+def test_startproject_with_output_dir(tmp_path: Path):
+    with runner.isolated_filesystem(temp_dir=tmp_path):
+        result = runner.invoke(app, ["startproject", "potato", "myproject/potato"])
+        assert result.output == CREATED_SUCCESSFULLY
+        assert result.exit_code == 0
